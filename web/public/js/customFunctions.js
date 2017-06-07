@@ -1,3 +1,21 @@
+//function checkIfUserIsCorrect(){
+//    var me = $(this);
+//    var correo = $.ajax({
+//            
+//            type: "POST",
+//            url: "/EProducts/index.htm",
+//            data: me.serialize(),
+//            success: function (response) {
+//                Materialize.toast(response, 4000);
+//                
+//            }
+//            
+//            
+//    });
+//    
+//    
+//}
+//
 //function doNotTurnOffModelDialog() {
 //    $('#login-form').submit(function (e) {
 //
@@ -8,13 +26,7 @@
 //            return;
 //        }
 //        
-//        var submission;
-//        function test(data){
-//            return submission = data;
-//        }
-//        
 //        me.data('requestRunning', true);
-//        
 //        
 //        var correo = $('#correo').val();
 //        var password = $('#password').val();
@@ -25,16 +37,12 @@
 //
 //            type: "POST",
 //            url: "/EProducts/index.htm",
-//            data: $('#login-form').serialize(),
+//            data: me.serialize(),
 //            success: function (response) {
+//                
 //                Materialize.toast(response, 4000);
-//                $('#correo').val('');
-//                $('#password').val('');
-//                if(response !== "Usuario incorrecto"){
-//                    setTimeout(10);
-//                    $('#correo').val('');
-//                    $("#login-form")[0].submit();
-//                }
+//                me.remove();
+//                me.submit();
 //                
 //            },
 //            complete: function (e) {
@@ -42,38 +50,14 @@
 //            }
 //            
 //        });
-//       
 //    });
 //    
 //}
 
-$('form').on('submit', function(event){
-   event.preventDefault();
-   
-   var form = $(this);
-   if (form.data('requestRunning')) {
-       return;
-   }
-   
-   form.data('requestRunning', true);
-   
-   
-   $.ajax('/index.htm', {
-       
-       type: 'POST',
-       data: form.serialize(),
-       
-       success: function(result){
-          
-       },
-       complete: function(){
-           
-           form.data('requestRunning', false);
-           
-       }
-       
-   });
-   
-   
-   
-});
+function doNotTOMD(){
+    
+    $('#register-form').submit(function(e){
+        e.preventDefault();
+    });
+    
+}

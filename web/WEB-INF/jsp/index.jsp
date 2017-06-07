@@ -8,62 +8,67 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>E-Products</title>
-        <link rel="stylesheet" type="text/css" href="<c:url value="/public/css/materialize.min.css"/>">
-        <link rel="stylesheet" type="text/css" href="<c:url value="/public/css/icons.css"/>">
-        <link rel="stylesheet" type="text/css" href="<c:url value="/public/css/material-icons.css"/>">
-        <link rel="stylesheet" type="text/css" href="<c:url value="/public/css/newcss.css"/>">
-        <!-- Importamos JQuery y la libreria de MaterializeCss -->
-        <script src="<c:url value="/public/js/jquery-2.1.1.min.js"/>"></script>
-        <script src="<c:url value="/public/js/materialize.min.js"/>"></script>
-        <script src="<c:url value="/public/js/customFunctions.js"/>"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <%@include file="Dependencies.jsp" %>
     </head>
 
     <body>
 
-
-
         <!-- Definimos la barra de navegacion -->
-        <nav>
-            <div class="nav-wrapper cyan">
-                <a href="#" class="brand-logo left" style="padding-left: 200px;"><i class="material-icons">shopping_cart</i>E-Products</a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a onclick="document.getElementById('modal1').style.display = 'block'">Iniciar sesion</a></li>
-                    <li><a>¿Ayuda?</a></li>
-                    <li><a href="#!">Contacto</a></li>
-                </ul> 
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-shopping-cart"></span> EProducts</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">¿Ayúda?</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a id="myBtn" data-toggle='modal' data-target='#loginModal'><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
+                </ul>
             </div>
         </nav>
+    
+    
+        <!-- Modal -->
+        <div class="modal fade" id="loginModal">
+            <div class="modal-dialog">
 
-
-        <!-- The Modal -->
-        <div id="modal1" class="modal2">
-            <span onclick="document.getElementById('modal1').style.display = 'none'" class="close" title="Close Modal">&times;</span>
-
-            <!-- Modal Content -->
-            <form:form id="login-form" method="POST" commandName="users" class="modal-content2 animate">
-                <div class="imgcontainer">
-                    <img src="<c:url value="/public/images/rsz_default-user.png"/>" alt="Avatar2" class="avatar">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="padding:35px 50px;">
+                        <button type="button" class="close">&times;</button>
+                        <h4><span class="glyphicon glyphicon-lock"></span> Iniciar sesion</h4>
+                    </div>
+                    <div class="modal-body" style="padding:40px 50px;">
+                        <form:form name="submitForm" method='POST'>
+                            <div class="form-group">
+                                <label for="usrname" id='correo'><span class="glyphicon glyphicon-user"></span> Correo</label>
+                                <input type="text" class="form-control" name="correo">
+                            </div>
+                            <div class="form-group">
+                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Contraseña</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="" checked>Remember me</label>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Iniciar sesion</button>
+                            <div style="color: red">${error}</div>
+                        </form:form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger btn-default pull-left"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                        <p>¿No tenes cuenta? <a href="#">Registrate</a></p>
+                        <p>Olvidates tu <a href="#">contraseña?</a></p>
+                    </div>
                 </div>
-                <div class="container">
-                    <form action="/index.htm" method="POST">
-                        <p>
-                            <label id="Correo"><b>Correo</b></label>
-                            <input name="correo" id="correo" class="form-control"/>
-                        </p>
-                        <p>
-                            <label ><b>Password</b></label>
-                            <input type="password" name="password" id="password" class="form-control"/>
-                        </p>
-                        <button type="submit" class="cyan">Enviar</button>
-                    </form>
-                    <button type="button" onclick="document.getElementById('modal1').style.display = 'none'" class="red">Cancel</button>
-                    <span class="psw">Olvidaste tu <a href="#">Contraseña?</a></span>
-                </div>
-            </form:form>
-        </div>
 
-        <div class="container">
+            </div>
+        </div> 
+
+
+
+        <div class="container bg-success">
             <h1>Productos</h1>
             <hr/>
             <div class="row">

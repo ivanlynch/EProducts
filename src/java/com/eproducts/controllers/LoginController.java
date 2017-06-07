@@ -5,17 +5,15 @@ import com.eproducts.models.UserValidations;
 import com.eproducts.models.Users;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.servlet.http.HttpServletRequest;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -43,50 +41,22 @@ public class LoginController {
     }
     
     
-    @RequestMapping(method=RequestMethod.POST)
-    public ModelAndView login(@ModelAttribute("users") Users u, BindingResult result, SessionStatus status){
-    
-        this.userValidations.validate(u, result);
-        if(result.hasErrors()){
-        
-            ModelAndView mav = new ModelAndView();
-            mav.setViewName("index");
-            mav.addObject("users", new Users());
-            return mav;
+    @RequestMapping(method = RequestMethod.POST)
+    public String login(Model model, @ModelAttribute("users") Users user, BindingResult result) {
+        this.userValidations.validate(user, result);
+        if (result.hasErrors()) {
             
-        }else{
-            
-            
-            Users user = checkUser(u.getCorreo(), u.getPassword());
-            if((u.getCorreo().equals(user.getCorreo())) && (u.getPassword().equals(user.getPassword()))){
-                
-                return new ModelAndView("redirect:/home.htm");
-                
-            }else{
-                
-                return new ModelAndView("redirect:/index.htm");
-                
+            if (user.getCorreo().equals("chandra") && user.getPassword().equals("chandra123")) {
+                model.addAttribute("msg", user.getCorreo());
+                return "home";
+            } else {
+                model.addAttribute("error", "Invalid Details");
+                return "index";
             }
-            
+        } else {
+            model.addAttribute("error", "Please enter Details");
+            return "index";
         }
-    
-    }
-    
-    @RequestMapping(value="/index.htm", method=RequestMethod.POST)
-    public @ResponseBody String login(@ModelAttribute("users") Users u, BindingResult result){
-        
-        String returnText;
-        this.userValidations.validate(u, result);
-        Users user = checkUser(u.getCorreo(), u.getPassword());
-        if((u.getCorreo().equals(user.getCorreo())) && (u.getPassword().equals(user.getPassword()))){
-            returnText = "¡Bienvenid@ " + user.getNombre() + "!";
-           
-        }else{
-            returnText = "Usuario incorrecto";
-        }
-        
-        return returnText;
-    
     }
     
     private Users checkUser(String correo, String password) {
