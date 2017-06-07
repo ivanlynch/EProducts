@@ -40,21 +40,21 @@ public class LoginController {
         return mav;
     }
     
-    
     @RequestMapping(method = RequestMethod.POST)
     public String login(Model model, @ModelAttribute("users") Users user, BindingResult result) {
+        Users usr = checkUser(user.getCorreo(), user.getPassword());
         this.userValidations.validate(user, result);
-        if (result.hasErrors()) {
-            
-            if (user.getCorreo().equals("chandra") && user.getPassword().equals("chandra123")) {
-                model.addAttribute("msg", user.getCorreo());
+        //String message = result.getFieldError().getDefaultMessage();
+        if (!result.hasErrors()){
+            if ((user.getCorreo().equals(usr.getCorreo())) && (user.getPassword().equals(usr.getPassword()))) {
+                model.addAttribute("msg", usr.getNombre());
                 return "home";
             } else {
-                model.addAttribute("error", "Invalid Details");
+                model.addAttribute("error", "El correo o contraseña son incorrectos");
                 return "index";
-            }
+            } 
         } else {
-            model.addAttribute("error", "Please enter Details");
+            model.addAttribute("error", result.getFieldError().getDefaultMessage());
             return "index";
         }
     }

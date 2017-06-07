@@ -40,7 +40,7 @@
                         <h4><span class="glyphicon glyphicon-lock"></span> Iniciar sesion</h4>
                     </div>
                     <div class="modal-body" style="padding:40px 50px;">
-                        <form:form name="submitForm" method='POST'>
+                        <form:form id="register-form" name="submitForm" method='POST'>
                             <div class="form-group">
                                 <label for="usrname" id='correo'><span class="glyphicon glyphicon-user"></span> Correo</label>
                                 <input type="text" class="form-control" name="correo">
