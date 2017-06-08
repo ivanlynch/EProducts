@@ -53,8 +53,10 @@
                                 <label><input type="checkbox" value="" checked>Remember me</label>
                             </div>
                             <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Iniciar sesion</button>
-                            <div style="color: red">${error}</div>
+                            
                         </form:form>
+                        <hr/>
+                        <div id="errorMsg">${error}</div>   
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-danger btn-default pull-left"><span class="glyphicon glyphicon-remove"></span> Cancel</button>

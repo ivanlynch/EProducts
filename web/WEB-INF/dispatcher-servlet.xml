@@ -33,6 +33,7 @@
     <!--
     The index controller.
     -->
+    
     <bean name="loginController" class="com.eproducts.controllers.LoginController" />
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"

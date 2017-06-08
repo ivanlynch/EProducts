@@ -30,7 +30,7 @@ public class UserValidations implements Validator{
             this.pattern = Pattern.compile(EMAIL_PATTERN);
             this.matcher = pattern.matcher(usuarios.getCorreo());
                 if(!matcher.matches()){
-                    errors.rejectValue("correo", "correo.incorrect", "El Correo electronico" + usuarios.getCorreo() + "no es valido");
+                    errors.rejectValue("correo", "correo.incorrect", "El Correo electronico " + usuarios.getCorreo() + " no es valido");
                 }
         
         }

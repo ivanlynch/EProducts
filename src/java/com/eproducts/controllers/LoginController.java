@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -38,6 +39,15 @@ public class LoginController {
         mav.setViewName("index");
         mav.addObject("users", new Users());
         return mav;
+    }
+    
+    @RequestMapping("/view")
+    public @ResponseBody Users getUser(){
+    
+        Users user = new Users();
+        user.setNombre("jose");
+        user.setPassword("1234");
+        return user;
     }
     
     @RequestMapping(method = RequestMethod.POST)
