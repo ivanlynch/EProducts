@@ -43,7 +43,7 @@
                         <form:form id="register-form" name="submitForm" method='POST'>
                             <div class="form-group">
                                 <label for="usrname" ><span class="glyphicon glyphicon-user"></span> Correo</label>
-                                <input type="text" class="form-control" name="correo" id='correo'>
+                                <input type="text" class="form-control" name="correo" id="correo">
                             </div>
                             <div class="form-group">
                                 <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Contraseña</label>
@@ -70,13 +70,97 @@
 
 
 
-        <div class="container bg-success">
-            <h1>Productos</h1>
-            <hr/>
-            <div class="row">
+        <header>
+		<h1>Nuestros Productos</h1>
+	</header>
+	
+	<ul class="cd-items cd-container">
+		<li class="cd-item">
+			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
 
-            </div>            
-        </div>
+		<li class="cd-item">
+			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+	</ul> <!-- cd-items -->
+
+	<div class="cd-quick-view">
+		<div class="cd-slider-wrapper">
+			<ul class="cd-slider">
+				<li class="selected"><img src="<c:url value="/public/images/item-1.jpg"/>" alt="Product 1"></li>
+				<li><img src="<c:url value="/public/images/item-2.jpg"/>" alt="Product 2"></li>
+				<li><img src="<c:url value="/public/images/item-3.jpg"/>" alt="Product 3"></li>
+			</ul> <!-- cd-slider -->
+
+			<ul class="cd-slider-navigation">
+				<li><a class="cd-next" href="#0">Prev</a></li>
+				<li><a class="cd-prev" href="#0">Next</a></li>
+			</ul> <!-- cd-slider-navigation -->
+		</div> <!-- cd-slider-wrapper -->
+
+		<div class="cd-item-info">
+			<h2>Produt Title</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium.</p>
+
+			<ul class="cd-item-action">
+				<li><button class="add-to-cart">Add to cart</button></li>					
+				<li><a href="#0">Learn more</a></li>	
+			</ul> <!-- cd-item-action -->
+		</div> <!-- cd-item-info -->
+		<a href="#0" class="cd-close">Close</a>
+	</div> <!-- cd-quick-view -->
         
     </body>
     
