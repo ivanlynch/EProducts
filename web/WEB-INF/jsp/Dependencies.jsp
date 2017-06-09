@@ -1,6 +1,4 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/public/css/bootstrap.min.css"/>">
-<link rel="stylesheet" type="text/css" href="<c:url value="/public/css/icons.css"/>">
-<link rel="stylesheet" type="text/css" href="<c:url value="/public/css/material-icons.css"/>">
 <link rel="stylesheet" type="text/css" href="<c:url value="/public/css/customStyles.css"/>">
 
 <!-- Importamos JQuery y la libreria de MaterializeCss -->

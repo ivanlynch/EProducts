@@ -42,8 +42,8 @@
                     <div class="modal-body" style="padding:40px 50px;">
                         <form:form id="register-form" name="submitForm" method='POST'>
                             <div class="form-group">
-                                <label for="usrname" id='correo'><span class="glyphicon glyphicon-user"></span> Correo</label>
-                                <input type="text" class="form-control" name="correo">
+                                <label for="usrname" ><span class="glyphicon glyphicon-user"></span> Correo</label>
+                                <input type="text" class="form-control" name="correo" id='correo'>
                             </div>
                             <div class="form-group">
                                 <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Contraseña</label>
