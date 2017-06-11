@@ -1,25 +1,39 @@
 /* global self */
 
 $(document).ready(function(){
-
+    
     $('#register-form').on('submit', function(event){
-        event.preventDefault();
+        
         var self = this;
         var form = $(this); 
         var errorMsg = $('#errorMsg');
+        
+        event.preventDefault();
+        
+        if (form.data('requestRunning')) {
+            return;
+        }
+        
+        form.data('requestRunning', true);
+        
         $.ajax({
-           url: 'index.htm',
+           url: '/EProducts/index',
            type: 'POST',
            data: form.serialize(),
            success: function(result){
-               
+
                var returnedErrorMsg = $(result).find('#errorMsg');
                returnedErrorMsg.addClass("alert alert-danger");
                errorMsg.replaceWith(returnedErrorMsg);
-               if(!(errorMsg.text() === 'El correo o contraseña son incorrectos') && !(errorMsg.text() === 'El Correo electronico ' + $('#correo').val() + ' no es valido') &&
-                  !(errorMsg.text() === 'El Campo Contraseña es obligatorio') && !(errorMsg.text() === 'El Campo Correo es obligatorio')){
+               
+               if(returnedErrorMsg.text() == ""){
                    self.submit();
                }
+               
+               agitar('#errorMsg');
+           },
+           complete: function (e) {               
+                form.data('requestRunning', false);
            }
            
         });
@@ -27,4 +41,24 @@ $(document).ready(function(){
     });
     
     
+    
 });
+
+function agitar(idElemento){   
+    
+    var intervalo = 100;                                                                                                 
+    var distancia = 10;                                                                                                  
+    var veces = 4;
+    var iterar = 0;
+
+    $(idElemento).css('position','relative');                                                                                  
+
+    for(iterar ; iterar < (veces+1) ; iterar++){                                                                              
+        $(idElemento).animate({ 
+            left:(( iterar % 2 == 0 ? distancia : distancia *- 1))
+            }, intervalo);                                   
+    }                                                                                                             
+
+    $(idElemento).animate({ left: 0 }, intervalo);                                                                                
+
+}

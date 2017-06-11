@@ -23,7 +23,7 @@
                     <li><a href="#">Inicio</a></li>
                     <li><a href="#">¿Ayúda?</a></li>
                     <li><a href="#">Contacto</a></li>
-                    <li><a id="myBtn" data-toggle='modal' data-target='#loginModal'><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
+                    <li><a id="myBtn" data-backdrop="static" data-toggle='modal' data-target='#loginModal'><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
                 </ul>
             </div>
         </nav>
@@ -36,7 +36,7 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header" style="padding:35px 50px;">
-                        <button type="button" class="close">&times;</button>
+                        <button type="button" data-dismiss="modal" class="close">&times;</button>
                         <h4><span class="glyphicon glyphicon-lock"></span> Iniciar sesion</h4>
                     </div>
                     <div class="modal-body" style="padding:40px 50px;">
@@ -52,14 +52,14 @@
                             <div class="checkbox">
                                 <label><input type="checkbox" value="" checked>Remember me</label>
                             </div>
-                            <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Iniciar sesion</button>
+                            <button type="submit" id="loginBtn" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Iniciar sesion</button>
                             
                         </form:form>
                         <hr/>
                         <div id="errorMsg">${error}</div>   
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-danger btn-default pull-left"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
                         <p>¿No tenes cuenta? <a href="#">Registrate</a></p>
                         <p>Olvidates tu <a href="#">contraseña?</a></p>
                     </div>
@@ -76,72 +76,16 @@
 	
 	<ul class="cd-items cd-container">
 		<li class="cd-item">
-			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
+			<img src="<c:url value="/resources/public/images/item-1.jpg"/>" alt="Item Preview">
 			<a href="#0" class="cd-trigger">Quick View</a>
 		</li> <!-- cd-item -->
-
-		<li class="cd-item">
-			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
-			<a href="#0" class="cd-trigger">Quick View</a>
-		</li> <!-- cd-item -->
-
-		<li class="cd-item">
-			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
-			<a href="#0" class="cd-trigger">Quick View</a>
-		</li> <!-- cd-item -->
-
-		<li class="cd-item">
-			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
-			<a href="#0" class="cd-trigger">Quick View</a>
-		</li> <!-- cd-item -->
-
-		<li class="cd-item">
-			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
-			<a href="#0" class="cd-trigger">Quick View</a>
-		</li> <!-- cd-item -->
-
-		<li class="cd-item">
-			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
-			<a href="#0" class="cd-trigger">Quick View</a>
-		</li> <!-- cd-item -->
-
-		<li class="cd-item">
-			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
-			<a href="#0" class="cd-trigger">Quick View</a>
-		</li> <!-- cd-item -->
-
-		<li class="cd-item">
-			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
-			<a href="#0" class="cd-trigger">Quick View</a>
-		</li> <!-- cd-item -->
-
-		<li class="cd-item">
-			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
-			<a href="#0" class="cd-trigger">Quick View</a>
-		</li> <!-- cd-item -->
-
-		<li class="cd-item">
-			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
-			<a href="#0" class="cd-trigger">Quick View</a>
-		</li> <!-- cd-item -->
-
-		<li class="cd-item">
-			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
-			<a href="#0" class="cd-trigger">Quick View</a>
-		</li> <!-- cd-item -->
-
-		<li class="cd-item">
-			<img src="<c:url value="/public/images/item-1.jpg"/>" alt="Item Preview">
-			<a href="#0" class="cd-trigger">Quick View</a>
-		</li> <!-- cd-item -->
-	</ul> <!-- cd-items -->
-
+        </ul>
 	<div class="cd-quick-view">
 		<div class="cd-slider-wrapper">
 			<ul class="cd-slider">
-				<li class="selected"><img src="<c:url value="/public/images/item-1.jpg"/>" alt="Product 1"></li>
-				<li><img src="<c:url value="/public/images/item-2.jpg"/>" alt="Product 2"></li>
-				<li><img src="<c:url value="/public/images/item-3.jpg"/>" alt="Product 3"></li>
+				<li class="selected"><img src="<c:url value="/resources/public/images/item-1.jpg"/>" alt="Product 1"></li>
+				<li><img src="<c:url value="/resources/public/images/item-2.jpg"/>" alt="Product 2"></li>
+				<li><img src="<c:url value="/resources/public/images/item-3.jpg"/>" alt="Product 3"></li>
 			</ul> <!-- cd-slider -->
 
 			<ul class="cd-slider-navigation">
