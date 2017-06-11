@@ -15,7 +15,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -49,8 +48,8 @@ public class IndexController {
         this.userValidations.validate(user, result);
         if (!result.hasErrors()){
             if ((user.getCorreo().equals(usr.getCorreo())) && (user.getPassword().equals(usr.getPassword()))) {
-                model.addAttribute("msg", usr.getNombre());
-                return "home";
+                model.addAttribute("id", usr.getId());
+                return "redirect:home";
             } else {
                 model.addAttribute("error", "El correo o contraseña son incorrectos");
                 return "index";
@@ -68,6 +67,7 @@ public class IndexController {
         return (Users) jdbcTemplate.query(query, new ResultSetExtractor<Users>(){
             public Users extractData(ResultSet rs) throws SQLException, DataAccessException{
                 if(rs.next()){
+                    usuario.setId(rs.getInt("id"));
                     usuario.setNombre(rs.getString("nombre"));
                     usuario.setCorreo(rs.getString("correo"));
                     usuario.setTelefono(rs.getString("telefono"));

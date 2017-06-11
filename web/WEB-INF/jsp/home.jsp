@@ -19,11 +19,11 @@
                 <div class="navbar-header">
                     <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-shopping-cart"></span> EProducts</a>
                 </div>
-                <a id="username">${msg}</a>
+                <a id="username">${users.nombre}</a>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">¿Ayúda?</a></li>
                     <li><a href="#">Contacto</a></li>
-                    <li><a id="logOut"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+                    <li><a id="logOut" href="/EProducts/logout"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
                 </ul>
             </div>
         </nav>

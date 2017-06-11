@@ -20,7 +20,7 @@
                     <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-shopping-cart"></span> EProducts</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Inicio</a></li>
+                    <li><a href="/EProducts/">Inicio</a></li>
                     <li><a href="#">¿Ayúda?</a></li>
                     <li><a href="#">Contacto</a></li>
                     <li><a id="myBtn" data-backdrop="static" data-toggle='modal' data-target='#loginModal'><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
@@ -60,7 +60,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                        <p>¿No tenes cuenta? <a href="#">Registrate</a></p>
+                        <p>¿No tenes cuenta? <a href="/EProducts/singup">Registrate</a></p>
                         <p>Olvidates tu <a href="#">contraseña?</a></p>
                     </div>
                 </div>
