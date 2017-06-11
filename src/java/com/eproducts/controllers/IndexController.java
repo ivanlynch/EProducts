@@ -1,6 +1,7 @@
 package com.eproducts.controllers;
 
 import com.eproducts.models.DBConnections;
+import com.eproducts.models.JsonResponse;
 import com.eproducts.models.UserValidations;
 import com.eproducts.models.Users;
 import java.sql.ResultSet;
@@ -19,13 +20,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-@RequestMapping("index.htm")
-public class LoginController {
+@RequestMapping("/index")
+public class IndexController {
     
     UserValidations userValidations;
     private JdbcTemplate jdbcTemplate;
 
-    public LoginController(){
+    public IndexController(){
         this.userValidations = new UserValidations();
         DBConnections DBConnection = new DBConnections();
         this.jdbcTemplate = new JdbcTemplate(DBConnection.connect());
@@ -41,20 +42,11 @@ public class LoginController {
         return mav;
     }
     
-    @RequestMapping("/view")
-    public @ResponseBody Users getUser(){
-    
-        Users user = new Users();
-        user.setNombre("jose");
-        user.setPassword("1234");
-        return user;
-    }
-    
+   
     @RequestMapping(method = RequestMethod.POST)
     public String login(Model model, @ModelAttribute("users") Users user, BindingResult result) {
         Users usr = checkUser(user.getCorreo(), user.getPassword());
         this.userValidations.validate(user, result);
-        //String message = result.getFieldError().getDefaultMessage();
         if (!result.hasErrors()){
             if ((user.getCorreo().equals(usr.getCorreo())) && (user.getPassword().equals(usr.getPassword()))) {
                 model.addAttribute("msg", usr.getNombre());
@@ -68,7 +60,7 @@ public class LoginController {
             return "index";
         }
     }
-    
+      
     private Users checkUser(String correo, String password) {
         
         final Users usuario = new Users();
