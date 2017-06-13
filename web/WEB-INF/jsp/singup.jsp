@@ -11,9 +11,9 @@
         <%@include file="Dependencies.jsp" %>
     </head>
 
-    <body style="padding-top: 0px">
+    <body>
 
-        <!-- Definimos la barra de navegacion -->
+            <!-- Definimos la barra de navegacion -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -27,8 +27,8 @@
                 </ul>
             </div>
         </nav>
-    
-    
+
+
         <!-- Modal -->
         <div class="modal fade" id="loginModal">
             <div class="modal-dialog">
@@ -53,9 +53,9 @@
                                 <label><input type="checkbox" value="" checked>Remember me</label>
                             </div>
                             <div class="form-group">
-                                <button type="submit" id="loginBtn" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Iniciar sesion </button>
+                                <button type="submit" id="loginBtn" class="btn btn-custom btn-block"><span class="glyphicon glyphicon-off"></span> Iniciar sesion </button>
                             </div>
-                            
+
                         </form:form>
                         <hr/>
                         <div id="errorMsg">${error}</div>   
@@ -65,48 +65,56 @@
                         <p>Olvidates tu <a href="#">contraseña?</a></p>
                     </div>
                 </div>
+
             </div>
         </div> 
+        <div class="container">
+            <div class="modal-content">
+                    <div class="modal-header" style="padding:35px 50px;">
+                        <h4><span class="glyphicon glyphicon-plus-sign"></span> Registrarse</h4>
+                    </div>
+                    <div class="modal-body" style="padding:40px 50px;">
+                        <form:form id="register-form" commandName="users" method='POST'>
+                            <div class="form-group">
+                                <form:label path="nombre" ><span class="glyphicon glyphicon-user"></span> Nombre</form:label>
+                                <form:input type="text" class="form-control" path="nombre"/>
+                                <form:errors path="nombre"/>
+                            </div>
+                            <div class="form-group">
+                                <form:label path="correo" ><span class="glyphicon glyphicon-envelope"></span> Correo</form:label>
+                                <form:input type="text" class="form-control" name="correo" path="correo" />
+                                <form:errors path="correo"/>
+                            </div>
+                            <div class="form-group">
+                                <form:label path="telefono" ><span class="glyphicon glyphicon-phone"></span> Telefono</form:label>
+                                <form:input type="text" class="form-control" name="telefono" path="telefono" />
+                            </div>
+                            <div class="form-group">
+                                <form:label path="password"><span class="glyphicon glyphicon-lock"></span> Contraseña</form:label>
+                                <form:input type="password" class="form-control" name="password" path="password"/>
+                            </div>
+                            <div class="form-group">
+                                <form:label path="password2"><span class="glyphicon glyphicon-lock"></span> Repetir Contraseña</form:label>
+                                <form:input type="password" class="form-control" name="repassword" path="password2"/>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id="loginBtn" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Enviar </button>
+                            </div>
+                            <hr/>
+                            <form:errors path="*" element="div" cssClass="alert alert-danger"/>
+                        </form:form>
+                    </div>
+                </div>
+                            
+        </div>
 
 
-        <div class="alert alert-success" style="display: none;">{msg}</div>            
-        <header>
-		<h1>Nuestros Productos</h1>
-	</header>
-	
-	<ul class="cd-items cd-container">
-		<li class="cd-item">
-			<img src="<c:url value="/resources/public/images/item-1.jpg"/>" alt="Item Preview">
-			<a href="#0" class="cd-trigger">Quick View</a>
-		</li> <!-- cd-item -->
-        </ul>
-	<div class="cd-quick-view">
-		<div class="cd-slider-wrapper">
-			<ul class="cd-slider">
-				<li class="selected"><img src="<c:url value="/resources/public/images/item-1.jpg"/>" alt="Product 1"></li>
-				<li><img src="<c:url value="/resources/public/images/item-2.jpg"/>" alt="Product 2"></li>
-				<li><img src="<c:url value="/resources/public/images/item-3.jpg"/>" alt="Product 3"></li>
-			</ul> <!-- cd-slider -->
 
-			<ul class="cd-slider-navigation">
-				<li><a class="cd-next" href="#0">Prev</a></li>
-				<li><a class="cd-prev" href="#0">Next</a></li>
-			</ul> <!-- cd-slider-navigation -->
-		</div> <!-- cd-slider-wrapper -->
 
-		<div class="cd-item-info">
-			<h2>Produt Title</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium.</p>
 
-			<ul class="cd-item-action">
-				<li><button class="add-to-cart">Add to cart</button></li>					
-				<li><a href="#0">Learn more</a></li>	
-			</ul> <!-- cd-item-action -->
-		</div> <!-- cd-item-info -->
-		<a href="#0" class="cd-close">Close</a>
-	</div> <!-- cd-quick-view -->
-        
+
+
     </body>
-    
+
 
 </html>

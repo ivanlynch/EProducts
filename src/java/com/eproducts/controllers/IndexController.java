@@ -1,8 +1,7 @@
 package com.eproducts.controllers;
 
 import com.eproducts.models.DBConnections;
-import com.eproducts.models.JsonResponse;
-import com.eproducts.models.UserValidations;
+import com.eproducts.models.LoginValidations;
 import com.eproducts.models.Users;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,11 +21,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/index")
 public class IndexController {
     
-    UserValidations userValidations;
+    LoginValidations userValidations;
     private JdbcTemplate jdbcTemplate;
 
     public IndexController(){
-        this.userValidations = new UserValidations();
+        this.userValidations = new LoginValidations();
         DBConnections DBConnection = new DBConnections();
         this.jdbcTemplate = new JdbcTemplate(DBConnection.connect());
         
@@ -49,7 +48,11 @@ public class IndexController {
         if (!result.hasErrors()){
             if ((user.getCorreo().equals(usr.getCorreo())) && (user.getPassword().equals(usr.getPassword()))) {
                 model.addAttribute("id", usr.getId());
-                return "redirect:home";
+                if(usr.isIsAdmin()){
+                    return "redirect:admin";
+                }else{
+                    return "redirect:home";
+                }
             } else {
                 model.addAttribute("error", "El correo o contraseña son incorrectos");
                 return "index";
@@ -72,6 +75,7 @@ public class IndexController {
                     usuario.setCorreo(rs.getString("correo"));
                     usuario.setTelefono(rs.getString("telefono"));
                     usuario.setPassword(rs.getString("password"));
+                    usuario.setIsAdmin(rs.getBoolean("isAdmin"));
                 }
                 return usuario;
             }

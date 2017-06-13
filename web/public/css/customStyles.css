@@ -11,6 +11,11 @@ body {
 .modal-footer {
     background-color: #f9f9f9;
 }
+
+.modal-footer a {
+    color: white;
+}
+
 .navbar.isModified a {
     padding:0 15px;
     line-height:80px;    
@@ -34,4 +39,90 @@ body {
     text-decoration: none;
     color: whitesmoke;
     font-size: 2em;
+}
+
+.modal-header, h4{
+    background-color: #4E8169;
+}
+
+form-group, button {
+    background-color: #4E8169;
+    font-size: 18px !important;
+}
+
+#admin-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 2em auto;
+}
+
+.cd-item.custompanel {
+    height: 459px;
+    width: 287px;
+}
+
+div.modal-body h4 {
+    text-align: center;
+    height: 150px;
+}
+
+div.modal-header{
+    height: 100px;
+}
+div.modal-header h4{
+    white-space: nowrap;
+}
+
+ul.cd-items.cd-container {
+    text-align: center;
+}
+
+ul.cd-items.cd-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+li.cd-panel.custompanel {
+    width: 100%;
+}
+
+.customtable {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    
+}
+
+thead.modal-header {
+    margin: auto;
+    text-align: center;
+}
+
+thead.modal-header tr th{
+    height: 50px;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+tbody.modal-content tr td {
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.modal-footer p a {
+    color: #f82f53;
+    text-decoration: none;
+}
+
+button.btn.btn-add {
+    background-color: #f82f53;
+    text-decoration: none;
+}
+
+button.btn.btn-add:hover {
+    color: white;
+    text-decoration: none;
 }

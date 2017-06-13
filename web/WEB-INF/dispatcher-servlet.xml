@@ -23,6 +23,9 @@
                 <prop key="/index">indexController</prop>
                 <prop key="/home">homeController</prop>
                 <prop key="/logout">logoutController</prop>
+                <prop key="/singup">singupController</prop>
+                <prop key="/admin">adminController</prop>
+                <prop key="/products">productsController</prop>
             </props>
         </property>
     </bean>
@@ -35,6 +38,9 @@
     <!--
     The index controller.
     -->
+    <bean name="productsController" class="com.eproducts.controllers.ProductsController" />
+    <bean name="adminController" class="com.eproducts.controllers.AdminController" />
+    <bean name="singupController" class="com.eproducts.controllers.SingupController" />
     <bean name="logoutController" class="com.eproducts.controllers.LogoutController" />
     <bean name="homeController" class="com.eproducts.controllers.HomeController" />
     <bean name="indexController" class="com.eproducts.controllers.IndexController" />

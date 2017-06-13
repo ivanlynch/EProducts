@@ -1,7 +1,7 @@
 package com.eproducts.controllers;
 
 import com.eproducts.models.DBConnections;
-import com.eproducts.models.UserValidations;
+import com.eproducts.models.LoginValidations;
 import com.eproducts.models.Users;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,11 +20,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/home")
 public class HomeController {
     
-        UserValidations userValidations;
+        LoginValidations userValidations;
         private JdbcTemplate jdbcTemplate;
 
         public HomeController() {
-            this.userValidations = new UserValidations();
+            this.userValidations = new LoginValidations();
             DBConnections DBConnection = new DBConnections();
             this.jdbcTemplate = new JdbcTemplate(DBConnection.connect());
 

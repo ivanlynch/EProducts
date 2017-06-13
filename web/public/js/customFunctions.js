@@ -1,8 +1,8 @@
 /* global self */
 
 $(document).ready(function(){
-    
-    $('#register-form').on('submit', function(event){
+//    
+    $('#login-form').on('submit', function(event){
         
         var self = this;
         var form = $(this); 
