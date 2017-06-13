@@ -1,7 +1,7 @@
 /* global self */
 
 $(document).ready(function(){
-//    
+//mergeado    
     $('#login-form').on('submit', function(event){
         
         var self = this;
