@@ -37,7 +37,7 @@
                             <th>Descripcion</th>
                             <th>Precio</th>
                             <th>Stock</th>
-                            <th><button class="btn btn-add">Agregar</button></th>
+                            <th><a class="btn btn-add" href="/EProducts/addProducts">Agregar</a></th>
                         </tr>
                     </thead>
                     <tbody class="modal-content">

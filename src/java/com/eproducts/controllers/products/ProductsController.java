@@ -1,7 +1,6 @@
-package com.eproducts.controllers;
+package com.eproducts.controllers.products;
 
 import com.eproducts.models.DBConnections;
-import com.eproducts.models.SingupValidations;
 import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -32,5 +31,4 @@ public class ProductsController {
         return mav;
         
     }
-    
 }

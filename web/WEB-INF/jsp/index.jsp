@@ -7,6 +7,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>E-Products</title>
         <%@include file="Dependencies.jsp" %>
     </head>
@@ -15,16 +16,24 @@
 
         <!-- Definimos la barra de navegacion -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="navbar-header">
                     <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-shopping-cart"></span> EProducts</a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only"> Toogle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                 </div>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/EProducts/">Inicio</a></li>
-                    <li><a href="#">¿Ayúda?</a></li>
-                    <li><a href="#">Contacto</a></li>
-                    <li><a id="myBtn" data-backdrop="static" data-toggle='modal' data-target='#loginModal'><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
-                </ul>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/EProducts/">Inicio</a></li>
+                        <li><a href="#">¿Ayúda?</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a id="myBtn" data-backdrop="static" data-toggle='modal' data-target='#loginModal'><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     

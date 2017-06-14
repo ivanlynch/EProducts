@@ -117,12 +117,26 @@ div.modal-footer p a {
     text-decoration: none;
 }
 
-button.btn.btn-add {
+th a.btn.btn-add {
     background-color: #f82f53;
+    text-decoration: none;
+    color: white;
+}
+
+a.btn.btn-add:hover {
+    color: white;
     text-decoration: none;
 }
 
-button.btn.btn-add:hover {
-    color: white;
-    text-decoration: none;
+@media (min-width: 768px){
+    
+    .navbar .navbar-nav{
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+    .navbar .navbar-collapse{
+        text-align: center;
+    }
+    
 }

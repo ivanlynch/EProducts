@@ -2,27 +2,32 @@ package com.eproducts.models;
 
 public class Products {
     
-    private int id, productPrice, productStock;
-    private String productName, productDescription;
+    private int id, productPrice, productStock ;
+    private String productName, productDescription, productImage;
 
     public Products() {
         
     }
 
-    public Products(int productPrice, int productStock, String productName, String productDescription) {
+    public Products(int productPrice, int productStock, String productName, String productDescription, String productImage) {
         this.productPrice = productPrice;
         this.productStock = productStock;
         this.productName = productName;
         this.productDescription = productDescription;
+        this.productImage = productImage;
     }
+ 
 
-    public Products(int id, int productPrice, int productStock, String productName, String productDescription) {
+    public Products(int id, int productPrice, int productStock, String productName, String productDescription, String productImage) {
         this.id = id;
         this.productPrice = productPrice;
         this.productStock = productStock;
         this.productName = productName;
         this.productDescription = productDescription;
+        this.productImage = productImage;
     }
+    
+    
 
     public int getId() {
         return id;
@@ -63,7 +68,15 @@ public class Products {
     public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
     }
-    
+
+    public String getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(String productImage) {
+        this.productImage = productImage;
+    }
+     
     
     
 }

@@ -18,13 +18,21 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-shopping-cart"></span> EProducts</a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only"> Toogle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                 </div>
                 <a id="username">${users.nombre}</a>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">¿Ayúda?</a></li>
-                    <li><a href="#">Contacto</a></li>
-                    <li><a id="logOut" href="/EProducts/logout"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
-                </ul>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">¿Ayúda?</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a id="logOut" href="/EProducts/logout"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
 
