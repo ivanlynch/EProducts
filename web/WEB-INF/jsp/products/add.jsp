@@ -8,22 +8,20 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>E-Products</title>
-        <%@include file="Dependencies.jsp" %>
+        <%@include file="../Dependencies.jsp" %>
     </head>
 
     <body>
 
-            <!-- Definimos la barra de navegacion -->
+        <!-- Definimos la barra de navegacion -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-shopping-cart"></span> EProducts</a>
                 </div>
+                <a id="username">Administración de Productos</a>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/EProducts/">Inicio</a></li>
-                    <li><a href="#">¿Ayúda?</a></li>
-                    <li><a href="#">Contacto</a></li>
-                    <li><a id="myBtn" data-backdrop="static" data-toggle='modal' data-target='#loginModal'><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
+                    <li><a id="logOut" href="/EProducts/products"><span class="glyphicon glyphicon-arrow-left"></span>  Volver</a></li>
                 </ul>
             </div>
         </nav>
@@ -74,10 +72,10 @@
                         <h4><span class="glyphicon glyphicon-plus-sign"></span> Agregar Producto</h4>
                     </div>
                     <div class="modal-body" style="padding:40px 50px;">
-                        <form:form id="register-form" commandName="products" method='POST'>
+                        <form:form id="addProduct" commandName="products" method='POST'>
                             <div class="form-group">
-                                <form:label path="productImage" ><span class="glyphicon glyphicon-picture"></span> Imagen </form:label>
-                                <form:input type="file" class="form-control" path="productImage"/>
+                                <form:label path="file" ><span class="glyphicon glyphicon-picture"></span> Imagen </form:label>
+                                <form:input type="file" class="form-control" path="file"/>
                             </div>
                             <div class="form-group">
                                 <form:label path="productName" ><span class="glyphicon glyphicon-info-sign"></span> Nombre del producto</form:label>

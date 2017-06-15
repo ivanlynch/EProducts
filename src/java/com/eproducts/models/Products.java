@@ -1,31 +1,36 @@
 package com.eproducts.models;
 
+import java.io.File;
+
 public class Products {
     
     private int id, productPrice, productStock ;
-    private String productName, productDescription, productImage;
+    private String productName, productDescription;
+    private File file;
 
     public Products() {
         
     }
 
-    public Products(int productPrice, int productStock, String productName, String productDescription, String productImage) {
+    public Products(int productPrice, int productStock, String productName, String productDescription, File file) {
         this.productPrice = productPrice;
         this.productStock = productStock;
         this.productName = productName;
         this.productDescription = productDescription;
-        this.productImage = productImage;
+        this.file = file;
     }
- 
 
-    public Products(int id, int productPrice, int productStock, String productName, String productDescription, String productImage) {
+    public Products(int id, int productPrice, int productStock, String productName, String productDescription, File file) {
         this.id = id;
         this.productPrice = productPrice;
         this.productStock = productStock;
         this.productName = productName;
         this.productDescription = productDescription;
-        this.productImage = productImage;
+        this.file = file;
     }
+
+    
+    
     
     
 
@@ -69,12 +74,13 @@ public class Products {
         this.productDescription = productDescription;
     }
 
-    public String getProductImage() {
-        return productImage;
+
+    public File getFile() {
+        return file;
     }
 
-    public void setProductImage(String productImage) {
-        this.productImage = productImage;
+    public void setFile(File file) {
+        this.file = file;
     }
      
     

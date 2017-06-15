@@ -1,7 +1,9 @@
 /* global self */
 
 $(document).ready(function(){
-//mergeado    
+//mergeado
+
+    
     $('#login-form').on('submit', function(event){
         
         var self = this;
@@ -39,6 +41,9 @@ $(document).ready(function(){
         });
         
     });
+    
+    
+    
     
     
     

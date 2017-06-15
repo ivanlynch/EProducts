@@ -26,7 +26,6 @@
                 <prop key="/singup">singupController</prop>
                 <prop key="/admin">adminController</prop>
                 <prop key="/products">productsController</prop>
-                <prop key="/addProducts">addProductController</prop>
             </props>
         </property>
     </bean>
@@ -41,7 +40,6 @@
     <!--
     The index controller.
     -->
-    <bean name="addProductController" class="com.eproducts.controllers.products.AddProductController" />
     <bean name="productsController" class="com.eproducts.controllers.products.ProductsController" />
     <bean name="adminController" class="com.eproducts.controllers.AdminController" />
     <bean name="singupController" class="com.eproducts.controllers.SingupController" />
