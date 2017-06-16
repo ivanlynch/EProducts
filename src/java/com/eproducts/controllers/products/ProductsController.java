@@ -3,8 +3,11 @@ package com.eproducts.controllers.products;
 import com.eproducts.models.DBConnections;
 import com.eproducts.models.Products;
 import com.mysql.jdbc.PreparedStatement;
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -50,12 +53,12 @@ public class ProductsController {
     }
     
     @RequestMapping(value="/add", method=RequestMethod.POST)
-    public ModelAndView addProduct(@ModelAttribute("product") Products product, BindingResult result) throws FileNotFoundException{
+    public ModelAndView addProduct(@ModelAttribute("products") Products products, BindingResult result) throws FileNotFoundException, IOException{
         
-        FileInputStream fis = null;
-        PreparedStatement ps = null;
-        fis = new FileInputStream(product.getFile());
-        this.jdbcTemplate.update("insert into Products (productName, productDescription, productPrice, productStock, productImage) values (?,?,?,?,?)", product.getProductName(), product.getProductDescription(), product.getProductPrice(), product.getProductStock(), fis);
+        InputStream inputStream = null;
+        byte[] byteArr = products.getFile().getBytes();
+        inputStream = new ByteArrayInputStream(byteArr);
+        this.jdbcTemplate.update("insert into Products (productName, productDescription, productPrice, productStock, productImage) values (?,?,?,?,?)", products.getProductName(), products.getProductDescription(), products.getProductPrice(), products.getProductStock(), inputStream);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("redirect:/products");
         return mav;

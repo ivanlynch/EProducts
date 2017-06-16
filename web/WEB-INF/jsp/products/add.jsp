@@ -72,7 +72,7 @@
                         <h4><span class="glyphicon glyphicon-plus-sign"></span> Agregar Producto</h4>
                     </div>
                     <div class="modal-body" style="padding:40px 50px;">
-                        <form:form id="addProduct" commandName="products" method='POST'>
+                        <form:form id="addProduct" commandName="products" method='POST' enctype="multipart/form-data">
                             <div class="form-group">
                                 <form:label path="file" ><span class="glyphicon glyphicon-picture"></span> Imagen </form:label>
                                 <form:input type="file" class="form-control" path="file"/>

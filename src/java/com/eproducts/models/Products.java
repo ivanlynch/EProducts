@@ -1,18 +1,19 @@
 package com.eproducts.models;
 
 import java.io.File;
+import org.springframework.web.multipart.MultipartFile;
 
 public class Products {
     
     private int id, productPrice, productStock ;
     private String productName, productDescription;
-    private File file;
+    private MultipartFile file;
 
     public Products() {
         
     }
 
-    public Products(int productPrice, int productStock, String productName, String productDescription, File file) {
+    public Products(int productPrice, int productStock, String productName, String productDescription, MultipartFile file) {
         this.productPrice = productPrice;
         this.productStock = productStock;
         this.productName = productName;
@@ -20,7 +21,7 @@ public class Products {
         this.file = file;
     }
 
-    public Products(int id, int productPrice, int productStock, String productName, String productDescription, File file) {
+    public Products(int id, int productPrice, int productStock, String productName, String productDescription, MultipartFile file) {
         this.id = id;
         this.productPrice = productPrice;
         this.productStock = productStock;
@@ -75,11 +76,11 @@ public class Products {
     }
 
 
-    public File getFile() {
+    public MultipartFile getFile() {
         return file;
     }
 
-    public void setFile(File file) {
+    public void setFile(MultipartFile file) {
         this.file = file;
     }
      
