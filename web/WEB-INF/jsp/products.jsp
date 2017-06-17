@@ -1,5 +1,6 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -34,10 +35,11 @@
                         <tr>
                             <th>#ID</th>
                             <th>Nombre</th>
-                            <th>Descripcion</th>
+                            <th>Descripción</th>
                             <th>Precio</th>
                             <th>Stock</th>
                             <th><a class="btn btn-add" href="products/add">Agregar</a></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody class="modal-content">
@@ -46,11 +48,13 @@
                                 <td><c:out value="${product.id}"></c:out></td>
                                 <td><c:out value="${product.productName}"></c:out></td>
                                 <td><c:out value="${product.productDescription}"></c:out></td>
-                                <td><c:out value="${product.productPrice}"></c:out></td>
+                                <fmt:setLocale value="es_AR" scope="session"/>
+                                <td><fmt:formatNumber value="${product.productPrice}" type="currency" currencySymbol="$"/></td>
                                 <td><c:out value="${product.productStock}"></c:out></td>
+                                <td><img src="data:image/jpeg;base64,${product.productImage}"/></td>
                                 <td>
-                                    <a href="<c:url value="edit.htm?id=${dato.id}"/>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                                    <a href="<c:url value="delete.htm?id=${dato.id}"/>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                    <a href="<c:url value="products/edit?id=${product.id}"/>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                    <a href="<c:url value="products/delete?id=${product.id}"/>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                                 </td>
                             </tr>
                         </c:forEach>
