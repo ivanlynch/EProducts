@@ -11,10 +11,9 @@ public class AdminController {
     
     @RequestMapping(method=RequestMethod.GET)
     public ModelAndView adminPanel(){
-    
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("admin");
-        return mav;
+        
+        return new ModelAndView("admin");
+        
     }
     
 }

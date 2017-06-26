@@ -30,7 +30,7 @@
         <div class="container">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Administración de productos</h3>
+                    <h3>Carrito de compras</h3>
                 </div>
                 <table class="table table-hover">
                     <thead class="modal-header">
@@ -45,18 +45,18 @@
                         </tr>
                     </thead>
                     <tbody class="modal-content">
-                        <c:forEach items="${products}" var="product">
+                        <c:forEach items="${cart}" var="item">
                             <tr>
-                                <td><c:out value="${product.id}"></c:out></td>
-                                <td><c:out value="${product.productName}"></c:out></td>
-                                <td><c:out value="${product.productDescription}"></c:out></td>
+                                <td><c:out value="${item.product.id}"></c:out></td>
+                                <td><c:out value="${item.product.productName}"></c:out></td>
+                                <td><c:out value="${item.product.productDescription}"></c:out></td>
                                 <fmt:setLocale value="es_AR" scope="session"/>
-                                <td><fmt:formatNumber value="${product.productPrice}" type="currency" currencySymbol="$"/></td>
-                                <td><c:out value="${product.productStock}"></c:out></td>
-                                <td><img src="data:image/jpeg;base64,${product.productImage}"/></td>
+                                <td><fmt:formatNumber value="${item.product.productPrice}" type="currency" currencySymbol="$"/></td>
+                                <td><c:out value="${item.product.productStock}"></c:out></td>
+                                <td><img src="data:image/jpeg;base64,${item.product.productImage}"/></td>
                                 <td>
-                                    <a href="<c:url value="products/edit?id=${product.id}"/>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                                    <a href="<c:url value="products/delete?id=${product.id}"/>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                    <a href="<c:url value="products/edit?id=${item.product.id}"/>"><span class="glyphicon glyphicon-pencil"></span></a>
+                                    <a href="<c:url value="products/delete?id=${item.product.id}"/>"><span class="glyphicon glyphicon-trash"></span></a>
                                 </td>
                             </tr>
                         </c:forEach>

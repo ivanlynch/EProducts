@@ -1,156 +1,100 @@
-body {
-    padding-top: 70px;
-}
-
-.modal-header, h4, .close {
-    background-color: #5cb85c;
-    color:white !important;
-    text-align: center;
-    font-size: 30px;
-}
-.modal-footer {
-    background-color: #f9f9f9;
-}
-
-.modal-footer a {
-    color: white;
-}
-
-.navbar.isModified a {
-    padding:0 15px;
-    line-height:80px;    
-}
-
-#errorMsg{
-    padding-top: 10;
-    float: none;
-}
-
-#username {
-    padding:0 15px;
-    line-height:50px;
-    display: inline-block;
-    float: none;
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align: center;
-    margin:0 auto;
-    text-decoration: none;
-    color: whitesmoke;
-    font-size: 2em;
-}
-
-.modal-header, h4{
-    background-color: #4E8169;
-}
-
-form-group, button {
-    background-color: #4E8169;
-    font-size: 18px !important;
-}
-
-#admin-container {
-    width: 100%;
-    max-width: 700px;
-    margin: 2em auto;
-}
-
-.cd-item.custompanel {
-    height: 459px;
-    width: 287px;
-}
-
-div.modal-body h4 {
-    text-align: center;
-    height: 150px;
-}
-
-div.modal-header{
-    height: 100px;
-}
-div.modal-header h4{
-    white-space: nowrap;
-}
-
-ul.cd-items.cd-container {
-    text-align: center;
-}
-
-ul.cd-items.cd-container {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-}
-
-li.cd-panel.custompanel {
+html, body {
+    padding-top: 50px;
+    height: 100%;
     width: 100%;
 }
 
-.customtable {
-    border-collapse: collapse;
-    width: 100%;
-    text-align: center;
-    
+.product_view .modal-dialog{
+    max-width: 800px; width: 100%;
 }
 
-thead.modal-header {
-    margin: auto;
-    text-align: center;
+.pre-cost{
+    text-decoration: line-through; 
+    color: #a5a5a5;
 }
 
-thead.modal-header tr th{
-    height: 50px;
-    margin: auto;
-    text-align: center;
-    vertical-align: middle;
+.space-ten{
+    padding: 10px 0;
 }
 
-tbody.modal-content tr td {
-    height: 30px;
-    text-align: center;
-    vertical-align: middle;
+.row{
+    margin-top:40px;
+    padding: 0 10px;
+}
+.clickable{
+    cursor: pointer;   
 }
 
-div.modal-footer p a {
-    color: #f82f53;
-    text-decoration: none;
+.panel-heading div {
+    margin-top: -18px;
+    font-size: 15px;
+}
+.panel-heading div span{
+    margin-left:5px;
+}
+.panel-body{
+    display: none;
 }
 
-th a.btn.btn-add {
-    background-color: #f82f53;
-    text-decoration: none;
-    color: white;
-}
-
-a.btn.btn-add:hover {
-    color: white;
-    text-decoration: none;
-}
-
-tbody.modal-content tr td img {
+tbody tr td img {
     height: 200px;
     width: 200px;
 }
 
-@media (min-width: 768px){
-    
-    .navbar .navbar-nav{
-        display: inline-block;
-        float: none;
-        vertical-align: top;
-    }
-    .navbar .navbar-collapse{
-        text-align: center;
-    }
-    
+div.panel-heading {
+    text-align: center;
 }
 
-table.customtable {
-    padding-bottom: 70px;
+table{
+    text-align: center;
+}
+table thead tr th{
+    text-align: center;
 }
 
 div.form-group img{
-    height: 200px;
+    height:200px;
     width: 200px;
+}
+div.container {
+    height: 90%;
+    width: 90%;
+}
+
+div.admin-panel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+div.admin-panel-item{
+    margin: 0 15px 15px;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+
+div.modal-header.tile{
+    text-align: center;
+    padding:35px 50px;
+    height: 100px;
+}
+
+div.modal-body.tile{
+    height: 150px;
+    text-align: center;
+}
+
+div.modal-body.tile p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+div.modal-footer{
+    height: 70px;
+}
+
+div.loggedUser {
+    text-align: center;
 }

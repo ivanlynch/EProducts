@@ -1,8 +1,8 @@
 package com.eproducts.controllers;
 
 import com.eproducts.models.DBConnections;
-import com.eproducts.models.SingupValidations;
-import com.eproducts.models.Users;
+import com.eproducts.models.User;
+import com.eproducts.validations.SingupValidations;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -29,22 +29,22 @@ public class SingupController {
     public ModelAndView singup(){
         ModelAndView mav = new ModelAndView();
         mav.setViewName("singup");
-        mav.addObject("users", new Users());
+        mav.addObject("users", new User());
         return mav;
     }
     
     @RequestMapping(method=RequestMethod.POST)
-    public ModelAndView singup(@ModelAttribute("users") Users u, BindingResult result){
+    public ModelAndView singup(@ModelAttribute("users") User u, BindingResult result){
     
         this.userValidations.validate(u, result);
         if(result.hasErrors()){
             ModelAndView mav = new ModelAndView();
             mav.setViewName("singup");
-            mav.addObject("users", new Users());
+            mav.addObject("users", new User());
             return mav;
             
         }else{
-            this.jdbcTemplate.update("insert into Users (nombre, correo, telefono, password) values (?,?,?,?)", u.getNombre(), u.getCorreo(), u.getTelefono(), u.getPassword());
+            this.jdbcTemplate.update("insert into Users (nombre, correo, telefono, password) values (?,?,?,?)", u.getUsername(), u.getCorreo(), u.getTelefono(), u.getPassword());
             ModelAndView mav = new ModelAndView();
             mav.setViewName("redirect:index");
             return mav;

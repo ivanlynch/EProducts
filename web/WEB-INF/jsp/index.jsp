@@ -1,12 +1,12 @@
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page session="true" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>E-Products</title>
         <%@include file="Dependencies.jsp" %>
@@ -28,10 +28,20 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/EProducts/">Inicio</a></li>
-                        <li><a href="#">¿Ayúda?</a></li>
-                        <li><a href="#">Contacto</a></li>
-                        <li><a id="myBtn" data-backdrop="static" data-toggle='modal' data-target='#loginModal'><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
+                        <c:choose>
+                            <c:when test="${empty loggedUser.username}">
+                            <li><a href="/EProducts/">Inicio</a></li>
+                            <li><a href="#">¿Ayúda?</a></li>    
+                            <li><a href="#">Contacto</a></li>
+                            <li><a id="myBtn" data-backdrop="static" data-toggle='modal' data-target='#loginModal'><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
+                            </c:when>
+                            <c:otherwise>
+                            <li><a href="/EProducts/home">Home</a></li>
+                            <li><a href="#">¿Ayúda?</a></li>    
+                            <li><a href="#">Contacto</a></li>
+                            <li><a href="/EProducts/logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                            </c:otherwise>
+                        </c:choose>
                     </ul>
                 </div>
             </div>
@@ -48,8 +58,8 @@
                         <button type="button" data-dismiss="modal" class="close">&times;</button>
                         <h4><span class="glyphicon glyphicon-lock"></span> Iniciar sesion</h4>
                     </div>
-                    <div class="modal-body" style="padding:40px 50px;">
-                        <form:form id="login-form" name="loginForm" method='POST'>
+                    <div class="modal-body" style="padding:40px 50px;">                       
+                        <form id="login-form" name="loginForm">
                             <div class="form-group">
                                 <label for="usrname" ><span class="glyphicon glyphicon-user"></span> Correo</label>
                                 <input type="text" class="form-control" name="correo" id="correo">
@@ -65,7 +75,7 @@
                                 <button type="submit" id="loginBtn" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Iniciar sesion </button>
                             </div>
                             
-                        </form:form>
+                        </form>
                         <hr/>
                         <div id="errorMsg">${error}</div>   
                     </div>
@@ -75,45 +85,109 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>            
 
-
-        <div class="alert alert-success" style="display: none;">{msg}</div>            
-        <header>
-		<h1>Nuestros Productos</h1>
-	</header>
-	
-	<ul class="cd-items cd-container">
-		<li class="cd-item">
-			<img src="<c:url value="/resources/public/images/item-1.jpg"/>" alt="Item Preview">
-			<a href="#0" class="cd-trigger">Quick View</a>
-		</li> <!-- cd-item -->
-        </ul>
-	<div class="cd-quick-view">
-		<div class="cd-slider-wrapper">
-			<ul class="cd-slider">
-				<li class="selected"><img src="<c:url value="/resources/public/images/item-1.jpg"/>" alt="Product 1"></li>
-				<li><img src="<c:url value="/resources/public/images/item-2.jpg"/>" alt="Product 2"></li>
-				<li><img src="<c:url value="/resources/public/images/item-3.jpg"/>" alt="Product 3"></li>
-			</ul> <!-- cd-slider -->
-
-			<ul class="cd-slider-navigation">
-				<li><a class="cd-next" href="#0">Prev</a></li>
-				<li><a class="cd-prev" href="#0">Next</a></li>
-			</ul> <!-- cd-slider-navigation -->
-		</div> <!-- cd-slider-wrapper -->
-
-		<div class="cd-item-info">
-			<h2>Produt Title</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium.</p>
-
-			<ul class="cd-item-action">
-				<li><button class="add-to-cart">Add to cart</button></li>					
-				<li><a href="#0">Learn more</a></li>	
-			</ul> <!-- cd-item-action -->
-		</div> <!-- cd-item-info -->
-		<a href="#0" class="cd-close">Close</a>
-	</div> <!-- cd-quick-view -->
+	<div class="container">
+            <div class="row">
+                <c:forEach items="${model.products}" var="product">
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <img src="data:image/jpeg;base64,${product.productImage}" alt="" class="img-responsive">
+                            <div class="caption">
+                                <h4 class="pull-right">$ ${product.productPrice}</h4>
+                                <h4><a href=  "#">${product.productName}</a></h4>
+                                <p>${product.productDescription}</p>
+                            </div>
+                            <div class="ratings">
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    (15 reviews)
+                                </p>
+                            </div>
+                            <div class="space-ten"></div>
+                            <div class="btn-ground text-center">
+                                <a type="button" class="btn btn-primary" href="/EProducts/cart/add/${product.id}"><i class="glyphicon glyphicon-shopping-cart"></i> Add To Cart</a>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#${product.id}"><i class="fa fa-search"></i> Quick View</button>
+                            </div>
+                            <div class="space-ten"></div>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div> 
+        </div>
+        <c:forEach items="${model.products}" var="product">
+            <div class="modal fade product_view" id="${product.id}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+                            <h3 class="modal-title">${product.productName}</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6 product_img">
+                                    <img src="data:image/jpeg;base64,${product.productImage}" alt="" class="img-responsive">
+                                </div>
+                                <div class="col-md-6 product_content">
+                                    <h4>Numero de control: <span>${product.id}</span></h4>
+                                    <div class="rating">
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        (10 reviews)
+                                    </div>
+                                    <p>${product.productDescription}</p>
+                                    <h3 class="cost"><span class="glyphicon glyphicon-usd"></span> ${product.productPrice} <small class="pre-cost"><span class="glyphicon glyphicon-usd"></span> ${product.productPrice}</small></h3>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            <select class="form-control" name="select">
+                                                <option value="" selected="">Color</option>
+                                                <option value="black">Black</option>
+                                                <option value="white">White</option>
+                                                <option value="gold">Gold</option>
+                                                <option value="rose gold">Rose Gold</option>
+                                            </select>
+                                        </div>
+                                        <!-- end col -->
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            <select class="form-control" name="select">
+                                                <option value="">Capacity</option>
+                                                <option value="">16GB</option>
+                                                <option value="">32GB</option>
+                                                <option value="">64GB</option>
+                                                <option value="">128GB</option>
+                                            </select>
+                                        </div>
+                                        <!-- end col -->
+                                        <div class="col-md-4 col-sm-12">
+                                            <select class="form-control" name="select">
+                                                <option value="" selected="">QTY</option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                            </select>
+                                        </div>
+                                        <!-- end col -->
+                                    </div>
+                                    <div class="space-ten"></div>
+                                    <div class="btn-ground">
+                                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart</button>
+                                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-heart"></span> Add To Wishlist</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+        
         
     </body>
     

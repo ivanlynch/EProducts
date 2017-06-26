@@ -19,7 +19,6 @@
                 <div class="navbar-header">
                     <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-shopping-cart"></span> EProducts</a>
                 </div>
-                <a id="username">Administración de Productos</a>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a id="logOut" href="/EProducts/products"><span class="glyphicon glyphicon-arrow-left"></span>  Volver</a></li>
                 </ul>
@@ -34,7 +33,7 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header" style="padding:35px 50px;">
-                        <button type="button" data-dismiss="modal" class="close">&times;</button>
+                        <button data-dismiss="modal" class="close">&times;</button>
                         <h4><span class="glyphicon glyphicon-lock"></span> Iniciar sesion</h4>
                     </div>
                     <div class="modal-body" style="padding:40px 50px;">

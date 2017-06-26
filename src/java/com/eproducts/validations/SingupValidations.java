@@ -1,5 +1,6 @@
-package com.eproducts.models;
+package com.eproducts.validations;
 
+import com.eproducts.models.User;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.springframework.validation.Errors;
@@ -15,23 +16,23 @@ public class SingupValidations implements Validator{
 
     @Override
     public boolean supports(Class<?> type) {
-        return Users.class.isAssignableFrom(type);
+        return User.class.isAssignableFrom(type);
     }
 
     @Override
     public void validate(Object o, Errors errors) {
         
-        Users usuarios = (Users) o;
+        User usuarios = (User) o;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nombre", "required.nombre", "El campo Nombre es obligatorio");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "correo", "required.correo", "El campo Correo es obligatorio");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "required.password", "El Campo Contraseña es obligatorio");
         
-        if(!(usuarios.getCorreo() != null && usuarios.getCorreo().isEmpty())){
+        if(!(usuarios.getCorreo()!= null && usuarios.getCorreo().isEmpty())){
         
             this.pattern = Pattern.compile(EMAIL_PATTERN);
             this.matcher = pattern.matcher(usuarios.getCorreo());
                 if(!matcher.matches()){
-                    errors.rejectValue("correo", "correo.incorrect", "El Correo electronico " + usuarios.getCorreo() + " no es valido");
+                    errors.rejectValue("correo", "correo.incorrect", "El Correo electronico " + usuarios.getCorreo()+ " no es valido");
                 }
         
         }

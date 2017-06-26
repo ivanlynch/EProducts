@@ -1,15 +1,10 @@
-/* global self */
-
 $(document).ready(function(){
-//mergeado
 
-    
     $('#login-form').on('submit', function(event){
         
         var self = this;
         var form = $(this); 
         var errorMsg = $('#errorMsg');
-        
         event.preventDefault();
         
         if (form.data('requestRunning')) {
@@ -19,22 +14,21 @@ $(document).ready(function(){
         form.data('requestRunning', true);
         
         $.ajax({
-           url: '/EProducts/index',
-           type: 'POST',
-           data: form.serialize(),
-           success: function(result){
-
-               var returnedErrorMsg = $(result).find('#errorMsg');
-               returnedErrorMsg.addClass("alert alert-danger");
-               errorMsg.replaceWith(returnedErrorMsg);
-               
-               if(returnedErrorMsg.text() == ""){
+            url: '/EProducts/login',
+            type: 'POST',
+            data: form.serialize(),
+            success: function(result){
+                
+               console.log(result.login);
+               if(result.login == undefined){
                    self.submit();
+               }else{
+                   errorMsg.text(result.login.FAILURE).addClass("alert alert-danger");
+                   agitar('#errorMsg');
                }
                
-               agitar('#errorMsg');
-           },
-           complete: function (e) {               
+            },
+            complete: function (e) {               
                 form.data('requestRunning', false);
            }
            

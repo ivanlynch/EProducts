@@ -1,8 +1,7 @@
-package com.eproducts.controllers.products;
+package com.eproducts.controllers;
 
 import com.eproducts.models.DBConnections;
 import com.eproducts.models.Products;
-import com.eproducts.models.Users;
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -23,7 +22,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller

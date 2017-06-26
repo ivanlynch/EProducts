@@ -19,8 +19,9 @@
                 <div class="navbar-header">
                     <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-shopping-cart"></span> EProducts</a>
                 </div>
+                <a id="username">Administración de Usuarios</a>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a id="logOut" href="/EProducts/products"><span class="glyphicon glyphicon-arrow-left"></span>  Volver</a></li>
+                    <li><a id="logOut" href="/EProducts/users"><span class="glyphicon glyphicon-arrow-left"></span>  Volver</a></li>
                 </ul>
             </div>
         </nav>
@@ -68,34 +69,35 @@
         <div class="container">
             <div class="modal-content">
                     <div class="modal-header" style="padding:35px 50px;">
-                        <h4><span class="glyphicon glyphicon-plus-sign"></span> Editar Producto</h4>
+                        <h4><span class="glyphicon glyphicon-plus-sign"></span> Editar Usuario</h4>
                     </div>
                     <div class="modal-body" style="padding:40px 50px;">
-                        <form:form id="editProduct" commandName="products" method='POST' enctype="multipart/form-data">
+                        <form:form id="register-form" commandName="users" method='POST'>
                             <div class="form-group">
-                                <form:label path="file" ><span class="glyphicon glyphicon-picture"></span> Imagen </form:label>
-                                <form:input type="file" class="form-control" path="file"/>
+                                <form:label path="nombre" ><span class="glyphicon glyphicon-user"></span> Nombre</form:label>
+                                <form:input type="text" class="form-control" path="nombre"/>
+                                <form:errors path="nombre"/>
                             </div>
                             <div class="form-group">
-                                <img src="data:image/jpeg;base64,${products.productImage}"/>
+                                <form:label path="correo" ><span class="glyphicon glyphicon-envelope"></span> Correo</form:label>
+                                <form:input type="text" class="form-control" name="correo" path="correo" />
+                                <form:errors path="correo"/>
                             </div>
                             <div class="form-group">
-                                <form:label path="productName" ><span class="glyphicon glyphicon-info-sign"></span> Nombre del producto</form:label>
-                                <form:input type="text" class="form-control" path="productName" value="${products.productName}"/>
-                                <form:errors path="productName"/>
+                                <form:label path="telefono" ><span class="glyphicon glyphicon-phone"></span> Telefono</form:label>
+                                <form:input type="text" class="form-control" name="telefono" path="telefono" />
                             </div>
                             <div class="form-group">
-                                <form:label path="productDescription" ><span class="glyphicon glyphicon-info-sign"></span> Descripcion del producto</form:label>
-                                <form:input type="text" class="form-control" name="productDescription" path="productDescription" value="${products.productDescription}"/>
-                                <form:errors path="productDescription"/>
+                                <form:label path="password"><span class="glyphicon glyphicon-lock"></span> Contraseña</form:label>
+                                <form:input type="password" class="form-control" name="password" path="password"/>
                             </div>
                             <div class="form-group">
-                                <form:label path="productPrice" ><span class="glyphicon glyphicon-usd"></span> Precio</form:label>
-                                <form:input type="amount" class="form-control" name="productPrice" path="productPrice" value="${products.productPrice}" />
+                                <form:label path="password2"><span class="glyphicon glyphicon-lock"></span> Repetir Contraseña</form:label>
+                                <form:input type="password" class="form-control" name="repassword" path="password2"/>
                             </div>
                             <div class="form-group">
-                                <form:label path="productStock"><span class="glyphicon glyphicon-oil"></span> Stock</form:label>
-                                <form:input type="amount" class="form-control" name="productStock" path="productStock" value="${products.productStock}"/>
+                                <form:label path="isAdmin"><span class="glyphicon glyphicon-lock"></span> ¿Es Administrador? </form:label>
+                                <form:checkbox class="form-control" value="1" path="isAdmin"/>
                             </div>
                             <div class="form-group">
                                 <button type="submit" id="loginBtn" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Enviar </button>
