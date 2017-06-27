@@ -14,7 +14,7 @@ $(document).ready(function(){
         form.data('requestRunning', true);
         
         $.ajax({
-            url: '/EProducts/login',
+            url: '/EProducts/j_spring_security_check',
             type: 'POST',
             data: form.serialize(),
             success: function(result){
@@ -35,11 +35,6 @@ $(document).ready(function(){
         });
         
     });
-    
-    
-    
-    
-    
     
 });
 

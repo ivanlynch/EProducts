@@ -22,5 +22,6 @@
 
     <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
     <bean name="customAuthenticationProvider" class="com.eproducts.security.CustomAuthenticationProvider"/>
-    <bean id="customAuthenticationFailureHandler" class="com.eproducts.security.CustomAuthenticationFailureHandler" />
+    <bean id="customAuthenticationFailureHandler" class="com.eproducts.security.CustomAuthenticationFailureHandler"></bean>
+    <bean id="customAuthenticationSuccessHandler" class="com.eproducts.security.CustomAuthenticationSuccessHandler"></bean>
 </beans>

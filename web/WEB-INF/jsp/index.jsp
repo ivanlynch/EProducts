@@ -59,7 +59,7 @@
                         <h4><span class="glyphicon glyphicon-lock"></span> Iniciar sesion</h4>
                     </div>
                     <div class="modal-body" style="padding:40px 50px;">                       
-                        <form id="login-form" name="loginForm">
+                        <form id="login-form" action="/EProducts/j_spring_security_check" method="POST" name="loginForm">
                             <div class="form-group">
                                 <label for="usrname" ><span class="glyphicon glyphicon-user"></span> Correo</label>
                                 <input type="text" class="form-control" name="correo" id="correo">
