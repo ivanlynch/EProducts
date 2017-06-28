@@ -1,8 +1,8 @@
 package com.eproducs.services;
 
-import java.util.List;
 import com.eproducts.models.Items;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 import org.redisson.Redisson;
 import org.redisson.api.RList;
 import org.redisson.api.RedissonClient;
@@ -20,7 +20,7 @@ public class RedisService {
     }
     
     public String setUserCart(String loggedUser, Items item){
-        RList<Items> savedCart = client.getList("loggedUser");
+        RList<Items> savedCart = client.getList("authenticatedUser");
         boolean exists = false;
         for (Items items : savedCart){
             if(items.getProduct().getId() == item.getProduct().getId()){

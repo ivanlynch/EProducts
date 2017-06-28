@@ -29,7 +29,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <c:choose>
-                            <c:when test="${empty loggedUser.username}">
+                            <c:when test="${empty authenticatedUser.username}">
                             <li><a href="/EProducts/">Inicio</a></li>
                             <li><a href="#">¿Ayúda?</a></li>    
                             <li><a href="#">Contacto</a></li>

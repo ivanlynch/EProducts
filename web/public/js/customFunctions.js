@@ -5,17 +5,17 @@ $(document).ready(function(){
         var self = this;
         var form = $(this); 
         var errorMsg = $('#errorMsg');
-        event.preventDefault();
+        
         
         if (form.data('requestRunning')) {
             return;
         }
         
         form.data('requestRunning', true);
-        
+        event.preventDefault();
         $.ajax({
-            url: '/EProducts/j_spring_security_check',
-            type: 'POST',
+            url: form.attr("action"),
+            type: form.attr("method"),
             data: form.serialize(),
             success: function(result){
                 

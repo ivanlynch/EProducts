@@ -1,5 +1,6 @@
 package com.eproducts.security;
 
+import com.eproducts.models.User;
 import java.io.IOException;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.WebAttributes;
@@ -18,13 +20,18 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-
+    private User user = new User();
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
-      throws IOException {
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
+        
+        user = (User)authentication.getPrincipal();
+        request.getSession().setAttribute("authenticatedUser", user);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
         handle(request, response, authentication);
-        clearAuthenticationAttributes(request);
+        //clearAuthenticationAttributes(request);
     }
+    
+
 
     protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
   
@@ -44,19 +51,17 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         boolean isAdmin = false;
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         for (GrantedAuthority grantedAuthority : authorities) {
-            if (grantedAuthority.getAuthority().equals("ROLE_USER")) {
-                isUser = true;
-                break;
-            } else if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
+            if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
                 isAdmin = true;
-                break;
+            } else if (grantedAuthority.getAuthority().equals("ROLE_USER")) {
+                isUser = true;
             }
         }
  
-        if (isUser) {
-            return "/home";
-        } else if (isAdmin) {
+        if (isAdmin) {
             return "/admin";
+        } else if (isUser) {
+            return "/home";
         } else {
             throw new IllegalStateException();
         }

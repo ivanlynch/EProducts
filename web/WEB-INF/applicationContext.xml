@@ -21,6 +21,9 @@
     p:password="${jdbc.password}" /-->
 
     <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
+    <bean id="customAccessDeniedHandler" class="com.eproducts.security.CustomAccessDeniedHandler" >
+        <property name="errorPage" value="403" />
+    </bean>
     <bean name="customAuthenticationProvider" class="com.eproducts.security.CustomAuthenticationProvider"/>
     <bean id="customAuthenticationFailureHandler" class="com.eproducts.security.CustomAuthenticationFailureHandler"></bean>
     <bean id="customAuthenticationSuccessHandler" class="com.eproducts.security.CustomAuthenticationSuccessHandler"></bean>

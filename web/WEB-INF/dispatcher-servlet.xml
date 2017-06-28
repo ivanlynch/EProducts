@@ -19,6 +19,7 @@
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
+                <prop key ="/403">accessDeniedController</prop>
                 <prop key="/">rootController</prop>
                 <prop key="/index">indexController</prop>
                 <prop key="/home">homeController</prop>
@@ -44,7 +45,7 @@
     <!--
     The index controller.
     -->
-    
+    <bean name="accessDeniedController" class="com.eproducts.controllers.AccessDeniedController" />
     <bean name="shoppingCartController" class="com.eproducts.controllers.ShoppingCartController" />
     <bean name="usersController" class="com.eproducts.controllers.UsersController"/>
     <bean name="productsController" class="com.eproducts.controllers.ProductsController" />

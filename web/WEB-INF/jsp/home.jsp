@@ -29,7 +29,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <c:choose>
-                            <c:when test="${loggedUser.isAdmin}">
+                            <c:when test="${authenticatedUser.isAdmin}">
                                 <li><a href="/EProducts/admin">Administracion</a></li>
                                 <li><a href="/EProducts/index">Inicio</a></li>
                                 <li><a href="#">¿Ayúda?</a></li>
@@ -50,7 +50,7 @@
         <div class="container">
             <div class="panel panel-success">
                 <div class="panel-heading">
-                    Usuario conectado: ${loggedUser.username}
+                    Usuario conectado: ${authenticatedUser.username}
                 </div>
             </div>
             <div class="container admin-panel">

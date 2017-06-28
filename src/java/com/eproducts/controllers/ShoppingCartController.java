@@ -24,14 +24,14 @@ public class ShoppingCartController {
     
     @RequestMapping(value="/add/{id}", method=RequestMethod.GET)
     public String addToCart(@PathVariable(value="id") int id, HttpSession session){
-        User user = (User)session.getAttribute("loggedUser");
+        User user = (User)session.getAttribute("authenticatedUser");
         redisService.setUserCart(user.getCorreo(), new Items(this.productService.getProductById(id), 1));
         return "redirect:/index";
     }
     
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView indexCart(HttpSession session){
-        User user = (User)session.getAttribute("loggedUser");
+        User user = (User)session.getAttribute("authenticatedUser");
         return new ModelAndView("cart", "cart", redisService.getUserCart(user.getCorreo()));
     }
 }
