@@ -29,7 +29,8 @@
                 <prop key="/products">productsController</prop>
                 <prop key="/users">usersController</prop>
                 <prop key="/cart">shoppingCartController</prop>
-                <prop key="/cart/**">shoppingCartController</prop>              
+                <prop key="/cart/**">shoppingCartController</prop>
+                <prop key="/account">accountController</prop>              
             </props>
         </property>
     </bean>
@@ -45,6 +46,7 @@
     <!--
     The index controller.
     -->
+    <bean name="accountController" class="com.eproducts.controllers.AccountController" />
     <bean name="accessDeniedController" class="com.eproducts.controllers.AccessDeniedController" />
     <bean name="shoppingCartController" class="com.eproducts.controllers.ShoppingCartController" />
     <bean name="usersController" class="com.eproducts.controllers.UsersController"/>

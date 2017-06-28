@@ -21,7 +21,7 @@
                     <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-shopping-cart"></span> EProducts</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a id="logOut" href="/EProducts/admin"><span class="glyphicon glyphicon-arrow-left"></span>  Volver</a></li>
+                    <li><a id="logOut" href="/EProducts/home"><span class="glyphicon glyphicon-arrow-left"></span>  Volver</a></li>
                 </ul>
             </div>
         </nav>

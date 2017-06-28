@@ -80,7 +80,7 @@
                             </p>
                         </div>
                         <div class="modal-footer tile">
-                            <a class="btn btn-success btn-block" href="/EProducts/users">Ir</a>
+                            <a class="btn btn-success btn-block" href="/EProducts/account">Ir</a>
                         </div>
                     </div>
                 </div>
