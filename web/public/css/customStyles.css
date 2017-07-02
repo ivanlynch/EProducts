@@ -111,3 +111,16 @@ body.error-body {
 .error-actions .btn {
     margin-right:10px; 
 }
+
+div.alert.alert-success.totalBox{
+    text-align: center;
+}
+
+div.alert.alert-success.totalBox div{
+    display: inline-block;
+}
+
+div#totalPrice{
+    font-weight: 900;
+    font-size: 20px;
+}

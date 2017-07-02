@@ -34,4 +34,11 @@ public class ShoppingCartController {
         User user = (User)session.getAttribute("authenticatedUser");
         return new ModelAndView("cart", "cart", redisService.getUserCart(user.getCorreo()));
     }
+    
+    @RequestMapping(value={"/delete/{id}"}, method=RequestMethod.GET)
+    public String deleteFromCart(@PathVariable(value="id") int id, HttpSession session){
+        User user = (User)session.getAttribute("authenticatedUser");
+        redisService.deleteProductFromUserCart(user.getCorreo(), new Items(this.productService.getProductById(id), 1));
+        return "redirect:/cart";
+    }
 }

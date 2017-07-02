@@ -19,8 +19,8 @@ public class RedisService {
         this.client = Redisson.create(config);
     }
     
-    public String setUserCart(String loggedUser, Items item){
-        RList<Items> savedCart = client.getList("authenticatedUser");
+    public void setUserCart(String userEmail, Items item){
+        RList<Items> savedCart = client.getList("userEmail");
         boolean exists = false;
         for (Items items : savedCart){
             if(items.getProduct().getId() == item.getProduct().getId()){
@@ -30,14 +30,23 @@ public class RedisService {
         
         if(!exists){
             savedCart.add(item);
-        }
-        
-        return null;
+        }      
     }
     
-    public List<Items> getUserCart(String loggedUser){
-        RList<Items> cart = client.getList("loggedUser");
+    public List<Items> getUserCart(String userEmail){
+        RList<Items> cart = client.getList("userEmail");
         return (List<Items>)cart;
+    }
+
+    public void deleteProductFromUserCart(String userEmail, Items item) {
+        RList<Items> userCart = client.getList("userEmail");
+        boolean exists = false;
+        for (Items items : userCart){
+            if(items.getProduct().getId() == item.getProduct().getId()){
+                userCart.remove(item);
+            }
+        }
+        
     }
        
 }

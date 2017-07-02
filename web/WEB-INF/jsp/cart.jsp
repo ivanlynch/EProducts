@@ -26,44 +26,59 @@
             </div>
         </nav>
         
-        
-        <div class="container">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Carrito de compras</h3>
+        <c:choose>
+            <c:when test="${empty cart}">
+                <div class="container">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="alert alert-success totalBox">
+                                <div id="totalPrice">Su carrito está vacío</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <table class="table table-hover">
-                    <thead class="modal-header">
-                        <tr>
-                            <th>#ID</th>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Precio</th>
-                            <th>Stock</th>
-                            <th></th>
-                            <th><a class="btn" href="products/add">Agregar</a></th>
-                        </tr>
-                    </thead>
-                    <tbody class="modal-content">
-                        <c:forEach items="${cart}" var="item">
-                            <tr>
-                                <td><c:out value="${item.product.id}"></c:out></td>
-                                <td><c:out value="${item.product.productName}"></c:out></td>
-                                <td><c:out value="${item.product.productDescription}"></c:out></td>
-                                <fmt:setLocale value="es_AR" scope="session"/>
-                                <td><fmt:formatNumber value="${item.product.productPrice}" type="currency" currencySymbol="$"/></td>
-                                <td><c:out value="${item.product.productStock}"></c:out></td>
-                                <td><img src="data:image/jpeg;base64,${item.product.productImage}"/></td>
-                                <td>
-                                    <a href="<c:url value="products/edit?id=${item.product.id}"/>"><span class="glyphicon glyphicon-pencil"></span></a>
-                                    <a href="<c:url value="products/delete?id=${item.product.id}"/>"><span class="glyphicon glyphicon-trash"></span></a>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+            </c:when>
+            <c:otherwise>
+                <div class="container">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</h3>
+                        </div>
+                        <hr/>
+                        <table class="table table-hover">
+                            <tbody class="modal-content">
+                                <c:forEach items="${cart}" var="item">
+                                    <tr>
+                                        <td><c:out value="${item.product.id}"></c:out></td>
+                                        <td><c:out value="${item.product.productName}"></c:out></td>
+                                        <td><c:out value="${item.product.productDescription}"></c:out></td>
+                                        <fmt:setLocale value="es-AR" scope="session"/>
+                                        <td><fmt:formatNumber value="${item.product.productPrice}" type="currency" currencySymbol="$"/></td>
+                                        <td>
+                                            <input type="number" class="cantidad" placeholder="Ingrese la cantidad" min="0" value="1" onkeydown="return false" >
+                                            <input class="precioUnitario" type="hidden" value="${item.product.productPrice}">
+                                        </td>
+                                        <td class="totalQty"></td>
+                                        <td>
+                                            <a href="<c:url value="/cart/delete/${item.product.id}"/>"><span class="glyphicon glyphicon-trash"></span></a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>    
+                            </tbody>
+                        </table>
+                        <div class="alert alert-success totalBox">
+                            <div style="display: inline-block">Total:</div>
+                            <div id="totalPrice" style="display: inline-block"></div>
+                        </div>
+                        <hr>
+                        <div class="modal-footer">
+                            <a class="btn btn-success" href="#" style="display: inline-block">Checkout</a>
+                        </div> 
+                    </div>
+                </div>
+            </c:otherwise>
+        </c:choose>
+        
 
     </body>
 
