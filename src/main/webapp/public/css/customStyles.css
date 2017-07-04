@@ -1,0 +1,126 @@
+html, body {
+    padding-top: 50px;
+    height: 100%;
+    width: 100%;
+}
+
+.product_view .modal-dialog{
+    max-width: 800px; width: 100%;
+}
+
+.pre-cost{
+    text-decoration: line-through; 
+    color: #a5a5a5;
+}
+
+.space-ten{
+    padding: 10px 0;
+}
+
+.row{
+    margin-top:40px;
+    padding: 0 10px;
+}
+.clickable{
+    cursor: pointer;   
+}
+
+.panel-heading div {
+    margin-top: -18px;
+    font-size: 15px;
+}
+.panel-heading div span{
+    margin-left:5px;
+}
+.panel-body{
+    display: none;
+}
+
+tbody tr td img {
+    height: 200px;
+    width: 200px;
+}
+
+div.panel-heading {
+    text-align: center;
+}
+
+table{
+    text-align: center;
+}
+table thead tr th{
+    text-align: center;
+}
+
+div.form-group img{
+    height:200px;
+    width: 200px;
+}
+div.container {
+    height: 90%;
+    width: 90%;
+}
+
+div.admin-panel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+div.admin-panel-item{
+    margin: 0 15px 15px;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+
+div.modal-header.tile{
+    text-align: center;
+    padding:35px 50px;
+    height: 100px;
+}
+
+div.modal-body.tile{
+    height: 150px;
+    text-align: center;
+}
+
+div.modal-body.tile p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+div.modal-footer{
+    height: 70px;
+}
+
+div.loggedUser {
+    text-align: center;
+}
+
+body.error-body {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8yOS8xMiKqq3kAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAABHklEQVRIib2Vyw6EIAxFW5idr///Qx9sfG3pLEyJ3tAwi5EmBqRo7vHawiEEERHS6x7MTMxMVv6+z3tPMUYSkfTM/R0fEaG2bbMv+Gc4nZzn+dN4HAcREa3r+hi3bcuu68jLskhVIlW073tWaYlQ9+F9IpqmSfq+fwskhdO/AwmUTJXrOuaRQNeRkOd5lq7rXmS5InmERKoER/QMvUAPlZDHcZRhGN4CSeGY+aHMqgcks5RrHv/eeh455x5KrMq2yHQdibDO6ncG/KZWL7M8xDyS1/MIO0NJqdULLS81X6/X6aR0nqBSJcPeZnlZrzN477NKURn2Nus8sjzmEII0TfMiyxUuxphVWjpJkbx0btUnshRihVv70Bv8ItXq6Asoi/ZiCbU6YgAAAABJRU5ErkJggg==);
+}
+.error-template {
+    padding: 40px 15px;text-align: center;
+}
+.error-actions {
+    margin-top:15px;margin-bottom:15px;
+}
+.error-actions .btn {
+    margin-right:10px; 
+}
+
+div.alert.alert-success.totalBox{
+    text-align: center;
+}
+
+div.alert.alert-success.totalBox div{
+    display: inline-block;
+}
+
+div#totalPrice{
+    font-weight: 900;
+    font-size: 20px;
+}

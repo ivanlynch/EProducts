@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <!--
+    Most controllers will use the ControllerClassNameHandlerMapping above, but
+    for the index controller we are using ParameterizableViewController, so we must
+    define an explicit mapping for it.
+    -->
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key ="/403">accessDeniedController</prop>
+                <prop key="/">rootController</prop>
+                <prop key="/index">indexController</prop>
+                <prop key="/home">homeController</prop>
+                <prop key="/logout">logoutController</prop>
+                <prop key="/singup">singupController</prop>
+                <prop key="/admin">adminController</prop>
+                <prop key="/products">productsController</prop>
+                <prop key="/users">usersController</prop>
+                <prop key="/cart">shoppingCartController</prop>
+                <prop key="/cart/**">shoppingCartController</prop>
+                <prop key="/account">accountController</prop>              
+            </props>
+        </property>
+    </bean>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+    
+   <bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+   
+    <!--
+    The index controller.
+    -->
+    <bean name="accountController" class="com.eproducts.controllers.AccountController" />
+    <bean name="accessDeniedController" class="com.eproducts.controllers.AccessDeniedController" />
+    <bean name="shoppingCartController" class="com.eproducts.controllers.ShoppingCartController" />
+    <bean name="usersController" class="com.eproducts.controllers.UsersController"/>
+    <bean name="productsController" class="com.eproducts.controllers.ProductsController" />
+    <bean name="adminController" class="com.eproducts.controllers.AdminController" />
+    <bean name="singupController" class="com.eproducts.controllers.SingupController" />
+    <bean name="logoutController" class="com.eproducts.controllers.LogoutController" />
+    <bean name="homeController" class="com.eproducts.controllers.HomeController" />
+    <bean name="indexController" class="com.eproducts.controllers.IndexController" />
+    <bean name="rootController" class="com.eproducts.controllers.RootController" />
+    
+</beans>
