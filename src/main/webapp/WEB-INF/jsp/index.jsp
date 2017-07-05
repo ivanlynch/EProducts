@@ -59,7 +59,7 @@
                         <h4><span class="glyphicon glyphicon-lock"></span> Iniciar sesion</h4>
                     </div>
                     <div class="modal-body" style="padding:40px 50px;">                       
-                        <form id="login-form" action="https://eproducts.cfapps.io/j_spring_security_check" method="POST" name="loginForm">
+                        <form id="login-form" action="${contextPath}/j_spring_security_check" method="POST" name="loginForm">
                             <div class="form-group">
                                 <label for="usrname" ><span class="glyphicon glyphicon-user"></span> Correo</label>
                                 <input type="text" class="form-control" name="correo" id="correo">
@@ -87,10 +87,10 @@
             </div>
         </div>            
 
-	<div class="container">
+	<div class="container products">
             <div class="row">
                 <c:forEach items="${model.products}" var="product">
-                    <div class="col-md-4">
+                    <div class="col-md-4 products-item">
                         <div class="thumbnail">
                             <img src="data:image/jpeg;base64,${product.productImage}" alt="" class="img-responsive">
                             <div class="caption">
@@ -110,7 +110,6 @@
                             </div>
                             <div class="space-ten"></div>
                             <div class="btn-ground text-center">
-                                <a type="button" class="btn btn-primary" href="${contextPath}/cart/add/${product.id}"><i class="glyphicon glyphicon-shopping-cart"></i> Add To Cart</a>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#${product.id}"><i class="fa fa-search"></i> Quick View</button>
                             </div>
                             <div class="space-ten"></div>
@@ -177,7 +176,7 @@
                                     </div>
                                     <div class="space-ten"></div>
                                     <div class="btn-ground">
-                                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart</button>
+                                        <a type="button" class="btn btn-primary" href="${contextPath}/cart/add/${product.id}"><i class="glyphicon glyphicon-shopping-cart"></i> Add To Cart</a>
                                         <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-heart"></span> Add To Wishlist</button>
                                     </div>
                                 </div>

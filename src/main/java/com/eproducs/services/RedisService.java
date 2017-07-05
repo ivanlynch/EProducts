@@ -18,6 +18,7 @@ public class RedisService {
         config.useSingleServer()
                 .setAddress("redis://redis-15453.c14.us-east-1-2.ec2.cloud.redislabs.com:15453")
                 .setPassword("tSrkjZUq7puIWj9r")
+//                .setAddress("redis://127.0.0.1:6379")
                 .setTimeout(3000)
                 .setConnectionPoolSize(30);
         this.client = Redisson.create(config);
