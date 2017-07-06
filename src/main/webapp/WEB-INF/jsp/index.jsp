@@ -88,14 +88,14 @@
         </div>            
 
 	<div class="container products">
-            <div class="row">
                 <c:forEach items="${model.products}" var="product">
-                    <div class="col-md-4 products-item">
-                        <div class="thumbnail">
-                            <img src="data:image/jpeg;base64,${product.productImage}" alt="" class="img-responsive">
+                    <div class="products-item">
+                            <div class="product-image">
+                                <img src="data:image/jpeg;base64,${product.productImage}" alt="">
+                            </div>
                             <div class="caption">
-                                <h4 class="pull-right">$ ${product.productPrice}</h4>
                                 <h4><a href=  "#">${product.productName}</a></h4>
+                                <h4>$ ${product.productPrice}</h4>
                                 <p>${product.productDescription}</p>
                             </div>
                             <div class="ratings">
@@ -108,15 +108,11 @@
                                     (15 reviews)
                                 </p>
                             </div>
-                            <div class="space-ten"></div>
                             <div class="btn-ground text-center">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#${product.id}"><i class="fa fa-search"></i> Quick View</button>
                             </div>
-                            <div class="space-ten"></div>
-                        </div>
                     </div>
                 </c:forEach>
-            </div> 
         </div>
         <c:forEach items="${model.products}" var="product">
             <div class="modal fade product_view" id="${product.id}">
