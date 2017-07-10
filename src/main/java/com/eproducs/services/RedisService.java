@@ -25,7 +25,7 @@ public class RedisService {
     }
     
     public void setUserCart(String userEmail, Items item){
-        RList<Items> savedCart = client.getList("userEmail");
+        RList<Items> savedCart = client.getList(userEmail);
         boolean exists = false;
         for (Items items : savedCart){
             if(items.getProduct().getId() == item.getProduct().getId()){
@@ -39,12 +39,12 @@ public class RedisService {
     }
     
     public List<Items> getUserCart(String userEmail){
-        RList<Items> cart = client.getList("userEmail");
+        RList<Items> cart = client.getList(userEmail);
         return (List<Items>)cart;
     }
 
     public void deleteProductFromUserCart(String userEmail, int id) {
-        RList<Items> userCart = client.getList("userEmail");
+        RList<Items> userCart = client.getList(userEmail);
         boolean exists = false;
         for (Items items : userCart){
             if(items.getProduct().getId() == id){
