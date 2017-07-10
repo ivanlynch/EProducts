@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class Items implements Serializable{
     
     private Products product = new Products();
-    private int quantity;
+    private int quantity, productId;
     
     public Items(){
     
@@ -18,7 +18,19 @@ public class Items implements Serializable{
         this.quantity = quantity;
         
     }
+    
+    public Items(int quantity, int productId) {
+        this.quantity = quantity;
+        this.productId = productId;
+    }
+    
+    public int getProductId() {
+        return productId;
+    }
 
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
 
     public Products getProduct() {
         return product;

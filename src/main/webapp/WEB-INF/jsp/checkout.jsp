@@ -29,7 +29,7 @@
         <div class="container">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h3><span class="glyphicon glyphicon-check"></span> Detalle de la compra </h3>
+                                <h3><span class="glyphicon glyphicon-ok"></span> Detalle de la compra </h3>
                             </div>
                             <table class="table table-hover">
                                 <thead>
@@ -58,9 +58,6 @@
                             <div class="alert alert-success totalBox">
                                 <div style="display: inline-block">Total:</div>
                                 <div id="totalPrice" style="display: inline-block">${count}</div>
-                            </div>
-                            <div class="modal-footer">
-                                <h3><span class="glyphicon glyphicon-credit-card center"></span> Pago </h3>
                             </div>
                             
                         </div>

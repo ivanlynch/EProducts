@@ -10,11 +10,11 @@ public class User implements Serializable, UserDetails{
     
     private static final long serialVersionUID = 1L;
     private int id;
-    private String username = " ";
-    private String correo = " ";
-    private String telefono = " ";
-    private String password = " ";
-    private String password2 = " ";
+    private String username = "";
+    private String correo = "";
+    private String telefono = "";
+    private String password = "";
+    private String password2 = "";
     private boolean isAdmin = false;
     private List<Role> authorities;
     private boolean accountNonExpired = true;

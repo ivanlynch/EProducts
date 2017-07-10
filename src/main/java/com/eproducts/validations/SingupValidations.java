@@ -23,7 +23,7 @@ public class SingupValidations implements Validator{
     public void validate(Object o, Errors errors) {
         
         User usuarios = (User) o;
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nombre", "required.nombre", "El campo Nombre es obligatorio");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "required.username", "El campo Nombre es obligatorio");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "correo", "required.correo", "El campo Correo es obligatorio");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "required.password", "El Campo Contraseña es obligatorio");
         

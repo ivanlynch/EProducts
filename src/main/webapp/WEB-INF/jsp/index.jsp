@@ -140,40 +140,16 @@
                                     <p>${product.productDescription}</p>
                                     <h3 class="cost"><span class="glyphicon glyphicon-usd"></span> ${product.productPrice} <small class="pre-cost"><span class="glyphicon glyphicon-usd"></span> ${product.productPrice}</small></h3>
                                     <div class="row">
-                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                            <select class="form-control" name="select">
-                                                <option value="" selected="">Color</option>
-                                                <option value="black">Black</option>
-                                                <option value="white">White</option>
-                                                <option value="gold">Gold</option>
-                                                <option value="rose gold">Rose Gold</option>
-                                            </select>
-                                        </div>
-                                        <!-- end col -->
-                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                            <select class="form-control" name="select">
-                                                <option value="">Capacity</option>
-                                                <option value="">16GB</option>
-                                                <option value="">32GB</option>
-                                                <option value="">64GB</option>
-                                                <option value="">128GB</option>
-                                            </select>
-                                        </div>
-                                        <!-- end col -->
                                         <div class="col-md-4 col-sm-12">
-                                            <select class="form-control" name="select">
-                                                <option value="" selected="">QTY</option>
-                                                <option value="">1</option>
-                                                <option value="">2</option>
-                                                <option value="">3</option>
-                                            </select>
+                                            <input type="number" id="qty" class="form-control qty" min="0" max="${product.productStock}" value="1" onkeydown="return false">
+                                            <div>Stock: ${product.productStock}</div>
                                         </div>
                                         <!-- end col -->
                                     </div>
                                     <div class="space-ten"></div>
                                     <div class="btn-ground">
-                                        <a type="button" class="btn btn-primary" href="${contextPath}/cart/add/${product.id}"><i class="glyphicon glyphicon-shopping-cart"></i> Add To Cart</a>
-                                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-heart"></span> Add To Wishlist</button>
+                                        <input id="productId" type="hidden" value="${product.id}" />
+                                        <a  id="addToCart" type="button" class="btn btn-primary" href="${contextPath}/cart/add/${product.id}/1"><i class="glyphicon glyphicon-shopping-cart"></i> Add To Cart</a>
                                     </div>
                                 </div>
                             </div>

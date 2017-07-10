@@ -30,7 +30,8 @@
                 <prop key="/users">usersController</prop>
                 <prop key="/cart">shoppingCartController</prop>
                 <prop key="/cart/**">shoppingCartController</prop>
-                <prop key="/account">accountController</prop>              
+                <prop key="/account">accountController</prop>
+                <prop key="/checkout">checkOutController</prop>          
             </props>
         </property>
     </bean>
@@ -46,6 +47,7 @@
     <!--
     The index controller.
     -->
+    <bean name="checkOutController" class="com.eproducts.controllers.CheckOutController"/>
     <bean name="accountController" class="com.eproducts.controllers.AccountController" />
     <bean name="accessDeniedController" class="com.eproducts.controllers.AccessDeniedController" />
     <bean name="shoppingCartController" class="com.eproducts.controllers.ShoppingCartController" />

@@ -76,9 +76,9 @@
                     <div class="modal-body" style="padding:40px 50px;">
                         <form:form id="register-form" commandName="users" method='POST'>
                             <div class="form-group">
-                                <form:label path="nombre" ><span class="glyphicon glyphicon-user"></span> Nombre</form:label>
-                                <form:input type="text" class="form-control" path="nombre"/>
-                                <form:errors path="nombre"/>
+                                <form:label path="username" ><span class="glyphicon glyphicon-user"></span> Nombre</form:label>
+                                <form:input type="text" class="form-control" path="username"/>
+                                <form:errors path="username"/>
                             </div>
                             <div class="form-group">
                                 <form:label path="correo" ><span class="glyphicon glyphicon-envelope"></span> Correo</form:label>

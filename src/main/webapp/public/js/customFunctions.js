@@ -1,5 +1,8 @@
 $(document).ready(function(){
     
+    /* Tomamos la variable global del contexto definida en las dependecias */
+    var contextPath = $('#contextPath').val();
+    
     /* Inicializamos las variables */
     var total = 0;
     
@@ -34,6 +37,46 @@ $(document).ready(function(){
            total += parseInt(cantidad) * parseInt(precioUnitario);
        });
        $('#totalPrice').text(new Intl.NumberFormat("es-ES", { style: "currency", currency: "ARS"}).format(total));
+    });
+    
+    /* Enviamos los datos ingresados al controlador checkout */
+    $('#checkout').on('click', function(event){
+        
+        /* Declaramos el array que va a contener todos los items */
+        var ItemList = [];
+        
+        /* Iteramos cada fila de la tabla */
+        $(".tableRow").each(function(input, value){
+            
+            /* Inicializamos un objecto Items vacio */
+            var Items = {
+                product: {},
+                quantity: ""
+            };
+            
+            /* Seteamos todos los valores de objeto */
+            Items.product.id = $(value).find("#productId").val();
+            Items.product.productName = $(value).find("#productName").val();
+            Items.product.productDescription = $(value).find("#productDescription").val();
+            Items.product.productPrice = $(value).find("#productPrice").val();
+            Items.quantity = $(value).find("#quantity").val();
+            
+            /* guardamos el objeto dentro del array */
+            ItemList.push(Items);
+        });
+        
+        /* Hacemos la llamada usando ajax al controllador */
+        $.ajax({
+            url: contextPath+"/checkout",
+            type: 'POST',
+            dataType: 'json',
+            data: {"ItemList":JSON.stringify(ItemList)},
+            complete: function(result){
+                /* una vez terminada la llamada redireccionamos a la vista checkout */
+                window.location.href = contextPath+"/checkout";
+            }
+        });
+        
     });
     
     /* Ajax Call al controllador de login */
@@ -73,7 +116,18 @@ $(document).ready(function(){
         
     });
     
+    /* Seteamos la los valores en la url para pasarle al controlador del carrito*/
+    $('.form-control.qty').on('click',function(index, value){
+            var value = $(this).val();
+            var parentElement = $(this).parent().parent().parent();
+            var productId = parentElement.find("#productId").val();
+            var newUrl = contextPath + "/cart/add/" + productId + "/" + value;
+            parentElement.find("#addToCart").attr("href", newUrl);
+    });
+    
 });
+
+
 
 
 /* Funcion que agita el div en caso de error */

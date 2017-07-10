@@ -83,5 +83,26 @@ public class ProductDao {
         
         return products;
     };
+
+    public Products getProductByIdWithoutImage(int id) {
+        final Products product = new Products();
+        String query = "SELECT * FROM Products WHERE id='" + id + "'";
+        return (Products) jdbcTemplate.query(query, new ResultSetExtractor<Products>(){
+            public Products extractData(ResultSet rs) throws SQLException, DataAccessException{
+                if(rs.next()){
+                    try{
+                        product.setId(rs.getInt("id"));
+                        product.setProductName(rs.getString("productName"));
+                        product.setProductDescription(rs.getString("productDescription"));
+                        product.setProductPrice(rs.getBigDecimal("productPrice"));
+                        product.setProductStock(rs.getInt("productStock"));
+                    }catch(Exception e){
+                        System.out.println(e);
+                    }
+                }
+                return product;
+            }
+        });
+    }
     
 }

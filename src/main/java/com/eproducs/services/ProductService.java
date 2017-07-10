@@ -21,6 +21,10 @@ public class ProductService {
     public List getAllProducts() throws UnsupportedEncodingException{
         return productDao.getAllProducts();
     }
+
+    public Products getProductByIdWithoutImage(int id) {
+        return productDao.getProductByIdWithoutImage(id);
+    }
     
     
     

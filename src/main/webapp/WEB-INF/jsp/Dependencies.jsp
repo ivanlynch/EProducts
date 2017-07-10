@@ -3,7 +3,7 @@
 
 <!-- Seteamos el context  -->
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-
+<input type="hidden" value="${contextPath}" id="contextPath" />
 <!-- Importamos JQuery y la libreria de MaterializeCss -->
 <script type="text/javascript" src="<c:url value="/resources/public/js/jquery-2.1.1.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resources/public/js/bootstrap.min.js"/>"></script>

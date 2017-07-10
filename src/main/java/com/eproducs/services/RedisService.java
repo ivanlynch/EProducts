@@ -16,9 +16,9 @@ public class RedisService {
     public RedisService() throws UnsupportedEncodingException {
         Config config = new Config();
         config.useSingleServer()
-                .setAddress("redis://redis-15453.c14.us-east-1-2.ec2.cloud.redislabs.com:15453")
-                .setPassword("tSrkjZUq7puIWj9r")
-//                .setAddress("redis://127.0.0.1:6379")
+//                .setAddress("redis://redis-15453.c14.us-east-1-2.ec2.cloud.redislabs.com:15453")
+//                .setPassword("tSrkjZUq7puIWj9r")
+                .setAddress("redis://127.0.0.1:6379")
                 .setTimeout(3000)
                 .setConnectionPoolSize(30);
         this.client = Redisson.create(config);
@@ -43,12 +43,12 @@ public class RedisService {
         return (List<Items>)cart;
     }
 
-    public void deleteProductFromUserCart(String userEmail, Items item) {
+    public void deleteProductFromUserCart(String userEmail, int id) {
         RList<Items> userCart = client.getList("userEmail");
         boolean exists = false;
         for (Items items : userCart){
-            if(items.getProduct().getId() == item.getProduct().getId()){
-                userCart.remove(item);
+            if(items.getProduct().getId() == id){
+                userCart.remove(items);
             }
         }
         
