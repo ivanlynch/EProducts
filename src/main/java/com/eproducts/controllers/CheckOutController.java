@@ -1,6 +1,6 @@
 package com.eproducts.controllers;
 
-import com.eproducts.models.Items;
+import com.eproducts.models.Item;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,12 +15,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/checkout")
 public class CheckOutController {
     
-    private List<Items> cart = new ArrayList<>();
+    private List<Item> cart = new ArrayList<>();
        
     @RequestMapping(method=RequestMethod.POST)
     public void checkout(@RequestParam(value="ItemList", required=false)String ItemList) throws IOException{
         ObjectMapper mapper = new ObjectMapper();
-        this.cart = mapper.readValue(ItemList, mapper.getTypeFactory().constructCollectionType(List.class, Items.class));
+        this.cart = mapper.readValue(ItemList, mapper.getTypeFactory().constructCollectionType(List.class, Item.class));
     }
     
     @RequestMapping(method=RequestMethod.GET)

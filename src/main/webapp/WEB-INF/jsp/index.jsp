@@ -1,6 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page session="true" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -55,8 +56,8 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header" style="padding:35px 50px;">
-                        <button type="button" data-dismiss="modal" class="close">&times;</button>
-                        <h4><span class="glyphicon glyphicon-lock"></span> Iniciar sesion</h4>
+                        <button type="button" data-dismiss="modal" class="close pull-right">&times;</button>
+                        <h3 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Iniciar sesion</h4>
                     </div>
                     <div class="modal-body" style="padding:40px 50px;">                       
                         <form id="login-form" action="${contextPath}/j_spring_security_check" method="POST" name="loginForm">
@@ -65,7 +66,7 @@
                                 <input type="text" class="form-control" name="correo" id="correo">
                             </div>
                             <div class="form-group">
-                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Contraseña</label>
+                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Contrase?a</label>
                                 <input type="password" class="form-control" name="password">
                             </div>
                             <div class="checkbox">
@@ -80,8 +81,8 @@
                         <div id="errorMsg">${error}</div>   
                     </div>
                     <div class="modal-footer">
-                        <p>¿No tenes cuenta? <a href="${contextPath}/singup">Registrate</a></p>
-                        <p>Olvidates tu <a href="#">contraseña?</a></p>
+                        <p>?No tenes cuenta? <a href="${contextPath}/singup">Registrate</a></p>
+                        <p>Olvidates tu <a href="#">contrase?a?</a></p>
                     </div>
                 </div>
             </div>

@@ -55,11 +55,11 @@ $(document).ready(function(){
             };
             
             /* Seteamos todos los valores de objeto */
-            Items.product.id = $(value).find("#productId").val();
-            Items.product.productName = $(value).find("#productName").val();
-            Items.product.productDescription = $(value).find("#productDescription").val();
-            Items.product.productPrice = $(value).find("#productPrice").val();
-            Items.quantity = $(value).find("#quantity").val();
+            Items.product.id = $(value).find("#productId").text();
+            Items.product.productName = $(value).find("#productName").text();
+            Items.product.productDescription = $(value).find("#productDescription").text();
+            Items.product.productPrice = $(value).find("#productPrice").text();
+            Items.quantity = $(value).find("#quantity").text();
             
             /* guardamos el objeto dentro del array */
             ItemList.push(Items);
@@ -67,13 +67,14 @@ $(document).ready(function(){
         
         /* Hacemos la llamada usando ajax al controllador */
         $.ajax({
-            url: contextPath+"/checkout",
+            url: contextPath+"/payment",
             type: 'POST',
             dataType: 'json',
             data: {"ItemList":JSON.stringify(ItemList)},
             complete: function(result){
-                /* una vez terminada la llamada redireccionamos a la vista checkout */
-                window.location.href = contextPath+"/checkout";
+                if(result.statusText === "OK"){
+                    window.location.href = contextPath + "/payment";
+                }
             }
         });
         

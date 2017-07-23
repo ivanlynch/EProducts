@@ -3,23 +3,25 @@ package com.eproducts.models;
 import java.io.Serializable;
 
 
-public class Items implements Serializable{
+public class Item implements Serializable{
     
-    private Products product = new Products();
+    private Products product = null;
     private int quantity, productId;
     
-    public Items(){
-    
+    public Item(){
+        this.product = new Products();
+        this.quantity = 0;
+        this.productId = 0;
     }
-    
-    public Items(Products product, int quantity) {
+       
+    public Item(Products product, int quantity) {
         
         this.product = product;
         this.quantity = quantity;
         
     }
     
-    public Items(int quantity, int productId) {
+    public Item(int quantity, int productId) {
         this.quantity = quantity;
         this.productId = productId;
     }

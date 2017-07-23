@@ -1,7 +1,7 @@
 package com.eproducts.models;
 
-import java.io.File;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Products {
@@ -12,7 +12,12 @@ public class Products {
     private MultipartFile file;
 
     public Products() {
-        
+        this.id = 0;
+        this.productStock = 0;
+        this.productPrice = new BigDecimal(BigInteger.ONE);
+        this.productName = "";
+        this.productDescription = "";
+        this.productImage = "";
     }
 
     public Products(BigDecimal productPrice, int productStock, String productName, String productDescription, MultipartFile file, String productImage) {

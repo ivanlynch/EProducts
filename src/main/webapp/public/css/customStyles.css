@@ -101,6 +101,11 @@ div.form-group img{
         width: 80%;
         align-self: center;
     }
+    
+    .product-image img{
+       width: 250px;
+    }
+    
     .products-item {
         flex: 0 1 100%;
     }
@@ -133,7 +138,7 @@ div.form-group img{
         flex: 0 1 100%;
     }
     div.product-image img{
-        width: auto;
+        width: 250px;
         align-self: center;
     }
 }
@@ -210,6 +215,7 @@ div.admin-panel-item{
     }
 }
 
+
 div.modal-header.tile{
     text-align: center;
     padding:35px 50px;
@@ -227,8 +233,63 @@ div.modal-body.tile p {
     word-wrap: break-word;
 }
 
+@media screen and (max-width: 360px){
+    
+    div.modal-content {
+        width: 341px;
+        height: 620px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    h3.modal-title {
+        white-space: nowrap;
+        clear: both;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    div.col-md-6.product_img {
+        display: flex;
+        justify-content: center;
+    }
+    
+    img.img-responsive {
+        height: 170px;
+    }
+      
+    .form-control {
+        text-align: center;
+    }
+        
+    .form-group {
+        width: 300px;
+    }
+    
+    .modal-body {
+        display: flex;
+        padding: 0px;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    #qty{
+        text-align: center;
+    }
+}
+
 div.modal-footer{
-    height: 70px;
+    display: flex;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+#checkout{
+    display: inline-flex;
+    align-items: center;
 }
 
 div.loggedUser {

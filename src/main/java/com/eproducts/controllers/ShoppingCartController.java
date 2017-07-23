@@ -2,7 +2,7 @@ package com.eproducts.controllers;
 
 import com.eproducs.services.ProductService;
 import com.eproducs.services.RedisService;
-import com.eproducts.models.Items;
+import com.eproducts.models.Item;
 import com.eproducts.models.Products;
 import com.eproducts.models.User;
 import java.io.UnsupportedEncodingException;
@@ -19,7 +19,7 @@ public class ShoppingCartController {
     
     private ProductService productService = null;
     private RedisService redisService = null;
-    private List<Items> cart = null;
+    private List<Item> cart = null;
     
     public ShoppingCartController() throws UnsupportedEncodingException{
         this.productService = new ProductService();
@@ -31,7 +31,7 @@ public class ShoppingCartController {
     public String addToCart(@PathVariable(value="id") int id,@PathVariable(value="qty") int qty, HttpSession session){
         Products product = this.productService.getProductByIdWithoutImage(id);
         User user = (User)session.getAttribute("authenticatedUser");
-        redisService.setUserCart(user.getCorreo(), new Items(product, qty));
+        redisService.setUserCart(user.getCorreo(), new Item(product, qty));
         return "redirect:/index";
     }
     

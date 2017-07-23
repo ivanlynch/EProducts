@@ -1,6 +1,6 @@
 package com.eproducs.services;
 
-import com.eproducts.models.Items;
+import com.eproducts.models.Item;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import org.redisson.Redisson;
@@ -24,10 +24,10 @@ public class RedisService {
         this.client = Redisson.create(config);
     }
     
-    public void setUserCart(String userEmail, Items item){
-        RList<Items> savedCart = client.getList(userEmail);
+    public void setUserCart(String userEmail, Item item){
+        RList<Item> savedCart = client.getList(userEmail);
         boolean exists = false;
-        for (Items items : savedCart){
+        for (Item items : savedCart){
             if(items.getProduct().getId() == item.getProduct().getId()){
                 exists = true;
             }
@@ -38,15 +38,15 @@ public class RedisService {
         }      
     }
     
-    public List<Items> getUserCart(String userEmail){
-        RList<Items> cart = client.getList(userEmail);
-        return (List<Items>)cart;
+    public List<Item> getUserCart(String userEmail){
+        RList<Item> cart = client.getList(userEmail);
+        return (List<Item>)cart;
     }
 
     public void deleteProductFromUserCart(String userEmail, int id) {
-        RList<Items> userCart = client.getList(userEmail);
+        RList<Item> userCart = client.getList(userEmail);
         boolean exists = false;
-        for (Items items : userCart){
+        for (Item items : userCart){
             if(items.getProduct().getId() == id){
                 userCart.remove(items);
             }

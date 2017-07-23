@@ -44,12 +44,12 @@
                                     <c:forEach items="${cart}" var="item">
                                         <c:set var="totalPriceUnit" scope="session" value="${item.product.productPrice * item.quantity}"/>
                                         <c:set var="count" scope="session" value="${count + totalPriceUnit}" />
-                                        <tr>
-                                            <td><c:out value="${item.product.id}"></c:out></td>
-                                            <td><c:out value="${item.product.productName}"></c:out></td>
-                                            <td><c:out value="${item.product.productDescription}"></c:out></td>
-                                            <td><c:out value="${item.quantity}"></c:out></td>
-                                            <td><c:out value="${totalPriceUnit}"></c:out></td>
+                                        <tr class="tableRow">
+                                            <td id="productId"><c:out value="${item.product.id}"></c:out></td>
+                                            <td id="productName"><c:out value="${item.product.productName}"></c:out></td>
+                                            <td id="productDescription"><c:out value="${item.product.productDescription}"></c:out></td>
+                                            <td id="quantity"><c:out value="${item.quantity}"></c:out></td>
+                                            <td id="productPrice"><c:out value="${totalPriceUnit}"></c:out></td>
                                             <td><a href="<c:url value="/cart/delete/${item.product.id}"/>"><span class="glyphicon glyphicon-trash"></span></a></td>
                                         </tr>
                                     </c:forEach>    
@@ -59,9 +59,10 @@
                                 <div style="display: inline-block">Total:</div>
                                 <div id="totalPrice" style="display: inline-block">${count}</div>
                             </div>
+
                             <div class="modal-footer">
-                                <h3><span class="glyphicon glyphicon-credit-card center"></span> Pago </h3>
-                            </div>
+                                <a id="checkout" class="btn btn-success checkout"><span class="glyphicon glyphicon-trash">Comprar</a>
+                            </div> 
                             
                         </div>
         </div>
