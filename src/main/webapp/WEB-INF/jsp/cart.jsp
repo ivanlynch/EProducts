@@ -14,15 +14,22 @@
 
     <body>
 
-        <!-- Definimos la barra de navegacion -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="navbar-header">
                     <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-shopping-cart"></span> EProducts</a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only"> Toogle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                 </div>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a id="logOut" href="${contextPath}/home"><span class="glyphicon glyphicon-arrow-left"></span>  Volver</a></li>
-                </ul>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a id="logOut" href="${contextPath}/home"><span class="glyphicon glyphicon-arrow-left"></span>  Volver</a></li>   
+                    </ul>
+                </div>
             </div>
         </nav>
         

@@ -37,7 +37,7 @@
         </nav>
         <div class="container admin-panel">
 		<div class="admin-panel-item">
-                    <div class="modal-content">
+                    <div class="modal-content administracion">
                         <div class="modal-header tile">                       
                             <h4><span class="glyphicon glyphicon-cog"></span> Productos </h4>
                         </div>
@@ -52,7 +52,7 @@
                     </div>
 		</div>
                 <div class="admin-panel-item">
-                    <div class="modal-content">
+                    <div class="modal-content administracion">
                         <div class="modal-header tile" style="padding:35px 50px;">                       
                             <h4><span class="glyphicon glyphicon-user"></span> Usuarios </h4>
                         </div>

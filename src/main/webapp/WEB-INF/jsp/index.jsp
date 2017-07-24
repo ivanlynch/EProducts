@@ -1,13 +1,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ page language="java" pageEncoding="UTF-8"%>
-<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page session="true" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>E-Products</title>
         <%@include file="Dependencies.jsp" %>
@@ -32,13 +29,13 @@
                         <c:choose>
                             <c:when test="${empty authenticatedUser.username}">
                             <li><a href="${contextPath}/">Inicio</a></li>
-                            <li><a href="#">Â¿AyÃºda?</a></li>    
+                            <li><a href="#">¿Ayúda?</a></li>    
                             <li><a href="#">Contacto</a></li>
                             <li><a id="myBtn" data-backdrop="static" data-toggle='modal' data-target='#loginModal'><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
                             </c:when>
                             <c:otherwise>
                             <li><a href="${contextPath}/home">Home</a></li>
-                            <li><a href="#">Â¿AyÃºda?</a></li>    
+                            <li><a href="#">¿Ayúda?</a></li>    
                             <li><a href="#">Contacto</a></li>
                             <li><a href="${contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
                             </c:otherwise>
@@ -66,7 +63,7 @@
                                 <input type="text" class="form-control" name="correo" id="correo">
                             </div>
                             <div class="form-group">
-                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Contrase?a</label>
+                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Contraseña</label>
                                 <input type="password" class="form-control" name="password">
                             </div>
                             <div class="checkbox">
@@ -81,8 +78,8 @@
                         <div id="errorMsg">${error}</div>   
                     </div>
                     <div class="modal-footer">
-                        <p>?No tenes cuenta? <a href="${contextPath}/singup">Registrate</a></p>
-                        <p>Olvidates tu <a href="#">contrase?a?</a></p>
+                        <p>¿No tenes cuenta? <a href="${contextPath}/singup">Registrate</a></p>
+                        <p>¿Olvidates tu <a href="#">contraseña?</a></p>
                     </div>
                 </div>
             </div>

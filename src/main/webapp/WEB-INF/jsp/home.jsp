@@ -1,6 +1,5 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -32,13 +31,13 @@
                             <c:when test="${authenticatedUser.isAdmin}">
                                 <li><a href="${contextPath}/admin">Administracion</a></li>
                                 <li><a href="${contextPath}/index">Inicio</a></li>
-                                <li><a href="#">Â¿AyÃºda?</a></li>
+                                <li><a href="#">¿Ayúda?</a></li>
                                 <li><a href="#">Contacto</a></li>
                                 <li><a href="${contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
                             </c:when>
                             <c:otherwise>
                                 <li><a href="${contextPath}/index">Inicio</a></li>
-                                <li><a href="#">Â¿AyÃºda?</a></li>
+                                <li><a href="#">¿Ayúda?</a></li>
                                 <li><a href="#">Contacto</a></li>
                                 <li><a href="${contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
                             </c:otherwise>
@@ -55,7 +54,7 @@
             </div>
             <div class="container admin-panel">
                 <div class="admin-panel-item">
-                    <div class="modal-content">
+                    <div class="modal-content administracion">
                         <div class="modal-header tile">                       
                             <h4><span class="glyphicon glyphicon-shopping-cart"></span> Carrito </h4>
                         </div>
@@ -70,7 +69,7 @@
                     </div>
                 </div>
                 <div class="admin-panel-item">
-                    <div class="modal-content">
+                    <div class="modal-content administracion">
                         <div class="modal-header tile" style="padding:35px 50px;">                       
                             <h4><span class="glyphicon glyphicon-user"></span> Cuenta </h4>
                         </div>
@@ -85,7 +84,7 @@
                     </div>
                 </div>
                 <div class="admin-panel-item">
-                    <div class="modal-content">
+                    <div class="modal-content administracion">
                         <div class="modal-header tile" style="padding:35px 50px;">                       
                             <h4><span class="glyphicon glyphicon-user"></span> Deseos </h4>
                         </div>
@@ -100,7 +99,7 @@
                     </div>
                 </div>
                 <div class="admin-panel-item">
-                    <div class="modal-content">
+                    <div class="modal-content administracion">
                         <div class="modal-header tile" style="padding:35px 50px;">                       
                             <h4><span class="glyphicon glyphicon-user"></span> Compras </h4>
                         </div>

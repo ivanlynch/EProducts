@@ -242,6 +242,10 @@ div.modal-body.tile p {
         flex-direction: column;
     }
     
+    div.modal-content.administracion{
+        height: 100%;
+    }
+    
     h3.modal-title {
         white-space: nowrap;
         clear: both;
@@ -276,6 +280,16 @@ div.modal-body.tile p {
     
     #qty{
         text-align: center;
+    }
+    
+    #logOut {
+        display: flex;
+        align-items: baseline;
+        justify-content: flex-end;
+    }
+    
+    .glyphicon-arrow-left:before{
+        padding-right: 5px;
     }
 }
 
