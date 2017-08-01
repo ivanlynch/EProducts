@@ -126,6 +126,7 @@ $(document).ready(function(){
             parentElement.find("#addToCart").attr("href", newUrl);
     });
     
+ 
 });
 
 

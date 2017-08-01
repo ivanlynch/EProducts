@@ -112,6 +112,14 @@ div.form-group img{
     button.navbar-toggle{
         margin-right: 30px;
     }
+    
+    thead.modal-header{
+        position: absolute;
+    }
+    
+    tbody:nth-child(2){
+        content: {"Hola"}
+    }
 }
 
 /* Nexus 5X */
@@ -291,6 +299,10 @@ div.modal-body.tile p {
     .glyphicon-arrow-left:before{
         padding-right: 5px;
     }
+    
+    tr td {
+        white-space:nowrap;
+    }
 }
 
 div.modal-footer{
@@ -335,3 +347,4 @@ div#totalPrice{
     font-weight: 900;
     font-size: 20px;
 }
+

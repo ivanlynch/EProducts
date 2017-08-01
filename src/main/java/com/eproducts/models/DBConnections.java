@@ -9,12 +9,12 @@ public class DBConnections {
         
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net/ad_8cae3f49ed4297d?user=b43609b9d681b5&password=b361e96c");
-        dataSource.setUsername("b43609b9d681b5");
-        dataSource.setPassword("b361e96c");
-//        dataSource.setUrl("jdbc:mysql://localhost/sys");
-//        dataSource.setUsername("root");
-//        dataSource.setPassword("22799281asd");
+//        dataSource.setUrl("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net/ad_8cae3f49ed4297d?user=b43609b9d681b5&password=b361e96c");
+//        dataSource.setUsername("b43609b9d681b5");
+//        dataSource.setPassword("b361e96c");
+        dataSource.setUrl("jdbc:mysql://localhost/sys");
+        dataSource.setUsername("root");
+        dataSource.setPassword("22799281asd");
         return dataSource;
     }
     
